@@ -23,6 +23,27 @@ body{
   transition: background-color 200ms linear;
 }
 
+.navbar-fixed-top .navbar-nav>.open>a, .navbar-fixed-top .navbar-nav>.open>a:hover, .navbar-fixed-top .navbar-nav>.open>a:focus {
+    color: #555;
+    background-color: #000000;
+}
+
+.navbar-fixed-top.scrolled .navbar-nav>.open>a, .navbar-fixed-top.scrolled .navbar-nav>.open>a:hover, .navbar-fixed-top.scrolled .navbar-nav>.open>a:focus {
+    color: #555;
+    background-color: inherit;
+    transition: background-color 200ms linear;
+}
+
+.navbar-fixed-top .dropdown-menu{
+    background-color: #000;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.navbar-fixed-top.scrolled .dropdown-menu{
+    background-color: rgba(255,255,255,0.9);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
 .sprite{
     width: 100%;
 }
@@ -30,6 +51,7 @@ body{
 .pacman{
     background-image: url('/static/images/pacman.jpg');
 }
+
 
 .streetfighter{
     background-image: url('/static/images/streetfighter.jpg');
@@ -101,4 +123,17 @@ a.nav-link:after{
 @media only screen and (max-width: 600px) {
     #logo {font-size: 20px;}
     .sprite {width: 50%;}
+    .sonic{background-image: url('/static/images/sonicsmall.png');}
+    .streetfighter{background-image: url('/static/images/streetfightersmall.jpg');}
+    .pacman{background-image: url('/static/images/Pacmansmall.jpg');}
+}
+
+.page-footer {
+    height:100px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #000;
+    color: white;
+    text-align: center;
 }
