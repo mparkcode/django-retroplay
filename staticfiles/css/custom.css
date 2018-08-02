@@ -3,6 +3,8 @@ body{
     padding: 0;
 }
 
+/*---------------------------------------------------------------------Navbar*/
+
 #logo{
     font-family: 'Libre Barcode 39 Extended Text', cursive;
     font-size: 40px;
@@ -23,36 +25,26 @@ body{
   transition: background-color 200ms linear;
 }
 
-.sprite{
-    width: 100%;
+.navbar-fixed-top .navbar-nav>.open>a, .navbar-fixed-top .navbar-nav>.open>a:hover, .navbar-fixed-top .navbar-nav>.open>a:focus {
+    color: #555;
+    background-color: #000000;
 }
 
-.pacman{
-    background-image: url('/static/images/pacman.jpg');
+.navbar-fixed-top.scrolled .navbar-nav>.open>a, .navbar-fixed-top.scrolled .navbar-nav>.open>a:hover, .navbar-fixed-top.scrolled .navbar-nav>.open>a:focus {
+    color: #555;
+    background-color: inherit;
+    transition: background-color 200ms linear;
 }
 
-.streetfighter{
-    background-image: url('/static/images/streetfighter.jpg');
+.navbar-fixed-top .dropdown-menu{
+    background-color: #000;
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.sonic{
-    background-image: url('/static/images/sonic.png');
+.navbar-fixed-top.scrolled .dropdown-menu{
+    background-color: rgba(255,255,255,0.9);
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
-
-.parallax{
-    width: 100%;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-
-.content{
-    margin-top: 80px;
-    margin-bottom: 80px;
-}
-
 
 a,a:visited,a:hover,a:active{
   transition:0.5s color ease;
@@ -85,6 +77,41 @@ a.nav-link:after{
           transform:translateX(-50%);
 }
 
+/*---------------------------------------------------------------------End Navbar*/
+
+/*---------------------------------------------------------------------Home Page*/
+
+.sprite{
+    width: 100%;
+}
+
+.pacman{
+    background-image: url('/static/images/pacman.jpg');
+}
+
+
+.streetfighter{
+    background-image: url('/static/images/streetfighter.jpg');
+}
+
+.sonic{
+    background-image: url('/static/images/sonic.png');
+}
+
+.parallax{
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.content{
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
 .welcome{
     font-family: 'Orbitron', sans-serif;
     margin-bottom: 20px;
@@ -98,7 +125,59 @@ a.nav-link:after{
     text-align: center;
 }
 
+/*---------------------------------------------------------------------End Home Page*/
+
+
+
 @media only screen and (max-width: 600px) {
     #logo {font-size: 20px;}
+    .parallax{width:100vw;}
     .sprite {width: 50%;}
+    .sonic{background-image: url('/static/images/sonicsmall.png');}
+    .streetfighter{background-image: url('/static/images/streetfightersmall.jpg');}
+    .pacman{background-image: url('/static/images/Pacmansmall.jpg');}
+    .social-link{height: 40px; width: 40px; font-size: 30px}
+}
+
+.page-footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #000;
+    color: white;
+    text-align: center;
+}
+
+.social-link{
+    height: 60px;
+    width: 60px;
+    background: grey;
+    border-radius: 50%;
+    margin: 20px 10px;
+    font-size: 40px;
+    display: inline-block;
+    color: white;
+    transition: all .3s ease-in-out;
+}
+
+.social-link:hover{
+    color: white !important;
+    transform: scale(1.05);
+}
+
+.facebook-link:hover{
+    background: #3B5998;
+}
+
+.instagram-link:hover{
+    background-image: url('/static/images/instagram.jpg');
+    background-size: cover;
+}
+
+.pinterest-link:hover{
+    background: #BD081C
+}        
+
+.twitter-link:hover{
+    background: #1ea1f2;
 }
