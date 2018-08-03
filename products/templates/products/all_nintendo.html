@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load staticfiles%}
+{% block content %}
+<div class="container">
+    <section class="content">
+        <div class="row">
+            <div class="col-md-8 col-sm-12">
+                <div class="welcome">
+                    <h1>Choose a brand</h1>
+                </div>
+                <div class="fade-line-wtob"></div>
+                <div class="content-section">
+                    <ul>
+                        <li><a href="{% url 'show_games' %}">NES</a></li>
+                    </ul>
+                </div>
+                <p><a href="#" class="nav-link">Click here to view our extensive collection of games</a></p>
+            </div>
+            <div class="col-md-4 col-sm-12  sprite-img">
+                <img src="{% static 'images/mariosprite.png' %}" class="sprite"></img>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

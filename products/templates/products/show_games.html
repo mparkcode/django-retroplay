@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load staticfiles%}
+{% block content %}
+<div class="container">
+    <section class="content">
+        <div class="row">
+            <div class="col-md-8 col-sm-12">
+                <div class="welcome">
+                    <h1>Choose a brand</h1>
+                </div>
+                <div class="fade-line-wtob"></div>
+                    <div class="row">
+                        {% for game in games %}
+                        <div class="col-md-4 col-sm-2 product">
+                            <img class="product-img" src="{{game.image}}">
+                            <div>
+                                <h5>{{game.title}}</h5>
+                                <p>{{game.brand}}</p>
+                                <a href="#" class="btn btn-primary">Add to Cart</a>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        {% endfor %}
+                    </div>
+            </div>    
+        </div>
+    </section>
+</div>
+{% endblock %}
