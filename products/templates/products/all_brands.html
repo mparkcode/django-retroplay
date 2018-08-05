@@ -14,9 +14,12 @@
                 </div>
                 <ul>
                     {% for brand in brands %}
-                        <li>{{brand.name}}</li>
+                        <li><a href="{% url 'show_consoles' brand=brand.name %}">{{brand.name}}</a></li>
                     {% endfor %}
                 </ul>
+                {% for brand in brands%}
+                    <img height="300" src="{{MEDIA_URL}}{{brand.image}}"></img>
+                {% endfor %}
             </div>
             <div class="col-md-4 col-sm-12  sprite-img">
                 <img src="{% static 'images/mariosprite.png' %}" class="sprite"></img>

@@ -10,8 +10,11 @@ def all_brands(request):
     brands = Brand.objects.all()
     return render(request, "products/all_brands.html", {"brands":brands})
     
-def all_nintendo(request):
-    return render(request, "products/all_nintendo.html")
+def show_consoles(request, brand):
+    brand = Brand.objects.get(name=brand)
+    consoles = Console.objects.filter(brand = brand)
+    return render(request, "products/show_consoles.html", {'consoles':consoles})
+    
     
 def show_games(request, console):
     console_type = Console.objects.get(console_type=console)

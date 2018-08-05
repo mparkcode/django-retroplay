@@ -26,5 +26,6 @@ from products import urls as products_urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name="index"),
-    path('games/', include(products_urls))
+    path('games/', include(products_urls)),
+    path('media/<path:path>', serve, {'document_root': settings.MEDIA_ROOT})
 ]

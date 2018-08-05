@@ -42,14 +42,9 @@
                         <li class="dropdown">
                             <a href="{% url 'all_brands' %}" class="dropdown-toggle nav-link after" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Games <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="{% url 'all_nintendo' %}">nintendo</a></li>
-                                <li><a href="#">atari</a></li>
-                                <li><a href="#">sega</a></li>
-                                <li><a href="#">microsoft</a></li>
-                                <li><a href="#">sony</a></li>
-                                <li><a href="#">sinclair</a></li>
-                                <li><a href="#">commodore</a></li>
-                                <li><a href="#">3do</a></li>
+                                {% for brand in all_brands %}
+                                    <li><a href="{% url 'show_consoles' brand=brand.name %}">{{brand.name}}</a></li>
+                                {% endfor%}
                             </ul>
                         </li>
                         <li><a class="nav-link after" href="#">Blog</a></li>
