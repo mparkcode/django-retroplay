@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load staticfiles%}
 {% block content %}
+<div class="spacer"></div>
 <div class="container">
     <section class="content">
         <div class="row">
@@ -9,20 +10,17 @@
                     <h1>Choose a brand</h1>
                 </div>
                 <div class="fade-line-wtob"></div>
-                <div class="content-section">
-                    
-                </div>
-                <ul>
+                <div class="row">
                     {% for brand in brands %}
-                        <li><a href="{% url 'show_consoles' brand=brand.name %}">{{brand.name}}</a></li>
+                    <div class="col-md-4 col-xs-6 brand-group">
+                        <span class="helper"></span>
+                        <a href="{% url 'show_consoles' brand=brand.name %}"><img class="brand-img" src="{{MEDIA_URL}}{{brand.image}}"></a>
+                    </div>
                     {% endfor %}
-                </ul>
-                {% for brand in brands%}
-                    <img height="300" src="{{MEDIA_URL}}{{brand.image}}"></img>
-                {% endfor %}
+                </div>
             </div>
-            <div class="col-md-4 col-sm-12  sprite-img">
-                <img src="{% static 'images/mariosprite.png' %}" class="sprite"></img>
+            <div class="col-md-4 col-sm-12">
+                <p>Search area goes here</p>
             </div>
         </div>
     </section>

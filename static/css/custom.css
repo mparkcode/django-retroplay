@@ -213,6 +213,29 @@ a.nav-link:after{
 
 /*---------------------------------------------------------------------end footer*/
 
+.spacer{
+    height: 50px;
+}
+
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.brand-group{
+    text-align: center;
+    height: 230px;
+}
+
+.brand-img{
+    width:90%;
+    vertical-align: middle;
+    height: auto;
+    max-height: 150px;
+    
+}
+
 .product{
     width: 180px;
     border: 1px solid black;
@@ -221,9 +244,7 @@ a.nav-link:after{
     margin-bottom: 5px;
 }
 
-/*.product-group{*/
-/*    text-align: center;*/
-/*}*/
+
 
 .product-img{
     width:100%;
@@ -237,6 +258,7 @@ a.nav-link:after{
 
 
 @media only screen and (max-width: 990px) {
+    .spacer{height: 25px;}
     .sprite {width: 40%;}
     
 }

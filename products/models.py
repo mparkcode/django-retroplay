@@ -14,6 +14,7 @@ class Brand(models.Model):
 class Console(models.Model):
     console_type = models.CharField(max_length=50, default='')
     image = models.ImageField(upload_to='images')
+    logo = models.ImageField(upload_to='images')
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
     
     def __str__(self):
