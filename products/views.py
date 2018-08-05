@@ -12,6 +12,6 @@ def all_brands(request):
 def all_nintendo(request):
     return render(request, "products/all_nintendo.html")
     
-def show_games(request):
-    games=Game.objects.filter(console="nes")
+def show_games(request, console):
+    games=Game.objects.filter(console=console)
     return render(request, "products/show_games.html", {"games":games})

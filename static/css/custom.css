@@ -215,12 +215,24 @@ a.nav-link:after{
 
 .product{
     width: 180px;
-    display: inline-block;
+    border: 1px solid black;
+    padding: 5px;
+    margin: 0 auto;
+    margin-bottom: 5px;
 }
+
+/*.product-group{*/
+/*    text-align: center;*/
+/*}*/
 
 .product-img{
     width:100%;
     height: 180px;
+    
+}
+
+.game-title{
+    height: 60px;
 }
 
 

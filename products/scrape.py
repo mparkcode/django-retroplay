@@ -1,7 +1,7 @@
 
 from bs4 import BeautifulSoup
 import requests
-from .models import Game
+from .models import Game, Brand, Console
 
 base_urls=[
     'https://www.consolemad.co.uk/product-category/atari/atari-2600-games/',
@@ -34,7 +34,44 @@ base_urls=[
     'https://www.consolemad.co.uk/product-category/other/zx-spectrum-games/',
     'https://www.consolemad.co.uk/product-category/other/3do/uk-3do-games/'
     ]
+    
 
+
+def get_brands_and_console(base_urls):
+      
+    for base_url in base_urls:
+          
+        url = base_url
+        
+        # while url:
+        url_list = url.split('/')
+        if url_list[5]=="zx-spectrum-games":
+            brand="Sinclair"
+            console="spectrum"
+        elif url_list[5]=="3do":
+            brand="3do"
+            console="3do"
+        else:
+            brand = url_list[4]
+            console = url_list[5]
+        if console[-6:]=="-games":
+            console = console[:-6]
+        
+        check_brand = Brand.objects.filter(name = brand)
+        if check_brand.count() < 1:
+            new_brand = Brand(name = brand)
+            new_brand.save()
+            print(console + " saved to db")
+            
+        check_console = Console.objects.filter(console_type = console)
+        if check_console.count() < 1:
+            brand = Brand.objects.get(name=brand)
+            new_console = Console(console_type = console, brand=brand)
+            new_console.save()
+            print(console + " saved to db")
+            
+            
+            
 def scrape(base_urls):
       
     for base_url in base_urls:
@@ -42,6 +79,7 @@ def scrape(base_urls):
         url = base_url
         
         while url:
+            
             url_list = url.split('/')
             if url_list[5]=="zx-spectrum-games":
                 brand="Sinclair"
@@ -54,8 +92,7 @@ def scrape(base_urls):
                 console = url_list[5]
             if console[-6:]=="-games":
                 console = console[:-6]
-            
-            
+        
             source = requests.get(url).text
             soup = BeautifulSoup(source, 'lxml')
             
@@ -85,6 +122,8 @@ def scrape(base_urls):
                 price = product.find('div', class_="entry-wrap").header.span.span.text
                 price = float(price[1:])
                 
+                brand = Brand.objects.get(name=brand)
+                console = Console.objects.get(console_type=console)
                 
                 game = Game(title=title, image=picture_link, price=price, brand=brand, console=console)
                 game.save()
@@ -96,5 +135,6 @@ def scrape(base_urls):
             else:
                 url = None
 
+get_brands_and_console(base_urls)
 scrape(base_urls)
    

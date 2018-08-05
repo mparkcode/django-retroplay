@@ -9,19 +9,25 @@
                     <h1>Choose a brand</h1>
                 </div>
                 <div class="fade-line-wtob"></div>
+                <!--<div class="container-fluid">-->
                     <div class="row">
                         {% for game in games %}
-                        <div class="col-md-4 col-sm-2 product">
-                            <img class="product-img" src="{{game.image}}">
-                            <div>
-                                <h5>{{game.title}}</h5>
-                                <p>{{game.brand}}</p>
-                                <a href="#" class="btn btn-primary">Add to Cart</a>
+                        <div class="col-lg-3 col-sm-4 col-xs-6 product-group">
+                            <div class="product">
+                                <img class="product-img" src="{{game.image}}">
+                                <div>
+                                    <div class="game-title">
+                                        <h5>{{game.title}}</h5>
+                                    </div>    
+                                    <p>{{game.brand}}</p>
+                                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="clearfix"></div>
+                        <!--<div class="clearfix"></div>-->
                         {% endfor %}
-                    </div>
+                    <!--</div>-->
+                </div>
             </div>    
         </div>
     </section>
