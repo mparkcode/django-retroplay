@@ -12,7 +12,11 @@
                 <div class="content-section">
                     
                 </div>
-                <p><a href="#" class="nav-link">Click here to view our extensive collection of games</a></p>
+                <ul>
+                    {% for brand in brands %}
+                        <li>{{brand.name}}</li>
+                    {% endfor %}
+                </ul>
             </div>
             <div class="col-md-4 col-sm-12  sprite-img">
                 <img src="{% static 'images/mariosprite.png' %}" class="sprite"></img>

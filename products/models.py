@@ -6,6 +6,7 @@ from django.db.models import Avg
         
 class Brand(models.Model):
     name = models.CharField(max_length=50, default='')
+    image = models.ImageField(upload_to='images')
     
     def __str__(self):
         return self.name
