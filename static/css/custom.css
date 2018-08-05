@@ -11,7 +11,7 @@ body{
 }
 
 .navbar{
-    background: rgba(0,0,0,0.8);
+    background: #000;
     transition: .3s;
 }
 
@@ -21,7 +21,7 @@ body{
 
 
 .navbar-fixed-top.scrolled {
-  background-color: rgba(255,255,255,0.9);
+  background-color: #f9f9f9;
   transition: background-color 200ms linear;
 }
 
@@ -41,9 +41,17 @@ body{
     border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
+.navbar-fixed-top .dropdown-menu li a{
+   color: #e7e7e7;
+}
+
 .navbar-fixed-top.scrolled .dropdown-menu{
-    background-color: rgba(255,255,255,0.9);
+    background-color: #f9f9f9;
     border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.navbar-fixed-top .dropdown-menu li a{
+   color: #777;
 }
 
 .dropdown:hover .dropdown-menu {
