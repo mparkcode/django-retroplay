@@ -10,12 +10,22 @@
                     <h1>{{ brand.name }} consoles</h1>
                 </div>
                 <div class="fade-line-wtob"></div>
-                    <ul>
-                        {% for console in consoles %}
-                            <li><a href="{% url 'show_games' console=console.console_type %}">{{ console.console_type }}</a></li>
-                        {% endfor %}
-                    </ul>
-                <p><a href="#" class="nav-link">Click here to view our extensive collection of games</a></p>
+                <!--<ul>-->
+                <!--    {% for console in consoles %}-->
+                <!--        <li><a href="{% url 'show_games' console=console.console_type %}">{{ console.console_type }}</a></li>-->
+                <!--    {% endfor %}-->
+                <!--</ul>-->
+                <!--<p><a href="#" class="nav-link">Click here to view our extensive collection of games</a></p>-->
+                <div class="row">
+                    {% for console in consoles %}
+                    <div class="col-md-4 col-xs-6 brand-group">
+                        <a href="{% url 'show_games' console=console.console_type %}">
+                            <img class="console-logo" src="{{MEDIA_URL}}{{console.logo}}"></img>
+                            <img class="console-img" src="{{MEDIA_URL}}{{console.image}}">
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
             <div class="col-md-4 col-sm-12">
                 <p>Search area goes here</p>

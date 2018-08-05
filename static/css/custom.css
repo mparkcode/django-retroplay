@@ -226,6 +226,7 @@ a.nav-link:after{
 .brand-group{
     text-align: center;
     height: 230px;
+    margin-bottom: 40px;
 }
 
 .brand-img{
@@ -234,6 +235,22 @@ a.nav-link:after{
     height: auto;
     max-height: 150px;
     
+}
+
+.console-img{
+    width:80%;
+    vertical-align: middle;
+    height: auto;
+    max-height: 150px;
+    
+}
+
+.console-logo{
+    width:90%;
+    vertical-align: middle;
+    height: auto;
+    max-height: 50px;
+    margin-bottom: 20px;
 }
 
 .product{
