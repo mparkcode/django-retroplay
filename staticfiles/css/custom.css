@@ -46,6 +46,10 @@ body{
     border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
 a,a:visited,a:hover,a:active{
   transition:0.5s color ease;
 }
@@ -114,11 +118,19 @@ a.nav-link:after{
 
 .welcome{
     font-family: 'Orbitron', sans-serif;
+    text-align: center;
     margin-bottom: 20px;
 }
 
 .content-section{
     margin-bottom: 20px;
+}
+
+.fade-line-wtob { 
+    margin: 25px 0;
+    height: 1px;
+    background: black;
+    background: -webkit-gradient(linear, 0 0, 100% 0, from(white), to(white), color-stop(50%, black));
 }
 
 .sprite-img{
@@ -129,15 +141,7 @@ a.nav-link:after{
 
 
 
-@media only screen and (max-width: 600px) {
-    #logo {font-size: 20px;}
-    .parallax{width:100vw;}
-    .sprite {width: 50%;}
-    .sonic{background-image: url('/static/images/sonicsmall.png');}
-    .streetfighter{background-image: url('/static/images/streetfightersmall.jpg');}
-    .pacman{background-image: url('/static/images/Pacmansmall.jpg');}
-    .social-link{height: 40px; width: 40px; font-size: 30px}
-}
+/*---------------------------------------------------------------------footer*/
 
 .page-footer {
     left: 0;
@@ -153,7 +157,7 @@ a.nav-link:after{
     width: 60px;
     background: grey;
     border-radius: 50%;
-    margin: 20px 10px;
+    margin: 20px 10px 0px 10px;
     font-size: 40px;
     display: inline-block;
     color: white;
@@ -163,6 +167,10 @@ a.nav-link:after{
 .social-link:hover{
     color: white !important;
     transform: scale(1.05);
+}
+
+.social-link:visited{
+    color: white !important;
 }
 
 .facebook-link:hover{
@@ -180,4 +188,64 @@ a.nav-link:after{
 
 .twitter-link:hover{
     background: #1ea1f2;
+}
+
+.fade-line-btow { 
+    margin: 25px 0;
+    height: 1px;
+    background: black;
+    background: -webkit-gradient(linear, 0 0, 100% 0, from(black), to(black), color-stop(50%, white));
+}
+
+.footer-links{
+    text-align: left;
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.footer-link{
+    color: white !important;
+}
+
+.mt-60{
+    margin-top: 60px;
+}
+
+/*---------------------------------------------------------------------end footer*/
+
+.product{
+    width: 180px;
+    border: 1px solid black;
+    padding: 5px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+
+/*.product-group{*/
+/*    text-align: center;*/
+/*}*/
+
+.product-img{
+    width:100%;
+    height: 180px;
+    
+}
+
+.game-title{
+    height: 60px;
+}
+
+
+@media only screen and (max-width: 990px) {
+    .sprite {width: 40%;}
+    
+}
+
+@media only screen and (max-width: 600px) {
+    #logo {font-size: 20px;}
+    .parallax{width:100%;}
+    .sonic{background-image: url('/static/images/sonicsmall.png');}
+    .streetfighter{background-image: url('/static/images/streetfightersmall.jpg');}
+    .pacman{background-image: url('/static/images/Pacmansmall.jpg');}
+    .social-link{height: 40px; width: 40px; font-size: 30px}
 }
