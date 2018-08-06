@@ -22,7 +22,7 @@ base_urls=[
     'https://www.consolemad.co.uk/product-category/nintendo/wii-u/uk-wii-u-games/',
     'https://www.consolemad.co.uk/product-category/sega/dreamcast/uk-dreamcast-games/',
     'https://www.consolemad.co.uk/product-category/sega/game-gear/uk-game-gear-games/',
-    'https://www.consolemad.co.uk/product-category/sega/master-system/',
+    'https://www.consolemad.co.uk/product-category/sega/master-system/uk-master-system-games/'
     'https://www.consolemad.co.uk/product-category/sega/mega-cd/uk-mega-cd-games/',
     'https://www.consolemad.co.uk/product-category/sega/mega-drive/uk-mega-drive-games/',
     'https://www.consolemad.co.uk/product-category/sega/saturn/uk-saturn-games/',
