@@ -221,9 +221,18 @@ a.nav-link:after{
 
 /*---------------------------------------------------------------------end footer*/
 
+
+/*---------------------------------------------------------------------spacer for clearing nav*/
+
 .spacer{
     height: 50px;
 }
+
+/*--------------------------------------------------------------------- endspacer for clearing nav*/
+
+
+/*---------------------------------------------------------------------css for displaying brands, consoles & games*/
+
 
 .helper {
     display: inline-block;
@@ -235,6 +244,11 @@ a.nav-link:after{
     text-align: center;
     height: 230px;
     margin-bottom: 40px;
+}
+
+.game-group{
+    /*border: 1px solid black;*/
+    
 }
 
 .brand-img{
@@ -277,12 +291,88 @@ a.nav-link:after{
     
 }
 
-.game-title{
-    height: 60px;
+.game-container {
+  position: relative;
 }
+
+.game-img{
+    transition: .5s ease;
+}
+
+.game-container a {
+  position: absolute;
+  transition: .5s ease;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.game-container:hover img {
+  opacity: 0.3;
+}
+
+.game-container:hover a {
+  opacity: 1;
+}
+
+/*---------------------------------------------------------------------css for displaying brands, consoles & games*/
+
+
+/*---------------------------------------------------------------------sidebar menu*/
+
+.sidebar-menu{
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+    padding: 10px;
+    width: 300px;
+    /*position: fixed;*/
+    background: #f9f9f9;
+}
+
+.sidebar-search-form{
+    margin-bottom: 20px;
+}
+
+.sidebar-brand-list{
+    list-style: none;
+}
+
+.sidebar-console-list{
+    list-style: none;
+    border-radius: 0px;
+}
+
+.list-group-item a{
+    color: #777;
+}
+
+.list-group-item:last-child {
+    margin-bottom: 0;
+    border-bottom-right-radius: 0px; 
+    border-bottom-left-radius: 0px; 
+}
+
+.list-group-item:first-child {
+    border-top-left-radius: 0px; 
+    border-top-right-radius: 0px; 
+}
+
+.sidebar-console-list-item{
+    padding-left: 40px;
+}
+
+.sidebar-navigation a{
+    text-decoration: none;
+}
+
+/*---------------------------------------------------------------------end sidebar menu*/
+
 
 
 @media only screen and (max-width: 990px) {
+    .sidebar-menu{position: static; width:100%}
     .spacer{height: 25px;}
     .sprite {width: 40%;}
     

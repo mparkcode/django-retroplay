@@ -12,16 +12,19 @@
                 <div class="fade-line-wtob"></div>
                 <div class="row">
                     {% for game in games %}
-                    <div class="col-lg-3 col-sm-4 col-xs-6">
-                        <div class="product">
-                            <img class="product-img" src="{{game.image}}">
-                            <div>
-                                <div class="game-title">
-                                    <h5>{{game.title}}</h5>
-                                </div>    
-                                <p>{{game.brand}}</p>
-                                <a href="#" class="btn btn-primary">Add to Cart</a>
-                            </div>
+                    <div class="col-md-4 col-xs-6 brand-group game-group">
+                        <div class="game-container">
+                            <img class="console-img game-img" src="{{game.image}}"></img>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                        
+                        <div>
+                            <div class="game-title">
+                                <h5>{{game.title}}</h5>
+                            </div>    
+                            <p>{{game.brand}} {{ game.console }}</p>
+                            <p>€ {{game.price}}</p>
+                            
                         </div>
                     </div>
                     {% endfor %}

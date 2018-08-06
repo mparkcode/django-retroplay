@@ -48,7 +48,6 @@ def show_games(request, console):
         query = search_query
         return redirect('search_results', query)
     else:
-        
         games=Game.objects.filter(console=console_type)
         return render(request, "products/show_games.html", {"games":games, "console": console_type})
     

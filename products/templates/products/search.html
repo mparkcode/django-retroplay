@@ -1,6 +1,26 @@
 {% load bootstrap_tags %}
-<form>
-    {% csrf_token %}
-    {{ game_search_form | as_bootstrap }}
-    <button type="submit" class="btn btn-info">Search</button>
-</form>
+<div class="sidebar-menu">
+    <div class="sidebar-search-form">
+        <form>
+            {% csrf_token %}
+            {{ game_search_form | as_bootstrap }}
+            <button type="submit" class="btn btn-info">Search</button>
+        </form>
+    </div>
+    <div class="sidebar-navigation">
+        <ul class="list-group">
+            {% for brand in all_brands %}
+                <a href="#{{brand}}" data-toggle="collapse"><li class="list-group-item"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a><a href="{% url 'show_consoles' brand=brand.name %}"> {{ brand }}</a></li>
+                <div id="{{brand}}" class="collapse">
+                <ul class="list-group">
+                    {% for console in all_consoles %}
+                        {% if console.brand == brand %}
+                            <li class="list-group-item sidebar-console-list-item"><a href="{% url 'show_games' console=console.console_type %}">{{ console }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
