@@ -14,7 +14,10 @@ def search_results(request, query):
     if search_query:
         query = search_query
         return redirect('search_results', query)
-    games= Game.objects.filter(title__icontains=query)
+    query_list = query.split(" ")
+    games = Game.objects.all()
+    for i in query_list:
+        games = games.filter(title__icontains=i)
     return render(request, "products/search_results.html", {"games":games})
     
 def all_brands(request):
@@ -22,6 +25,7 @@ def all_brands(request):
     if search_query:
         query = search_query
         return redirect('search_results', query)
+        
     else:
         brands = Brand.objects.all()
         return render(request, "products/all_brands.html", {"brands":brands})
