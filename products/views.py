@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import Game, Console, Brand
-
+import http.client
+import urllib.request
+import urllib.error
 
 
 # Create your views here.
@@ -18,6 +20,11 @@ def search_results(request, query):
     games = Game.objects.all()
     for i in query_list:
         games = games.filter(title__icontains=i)
+    for game in games:
+        try:
+            urllib.request.urlopen(game.image)
+        except urllib.error.HTTPError as e:
+            Game.objects.filter(title=game.title).delete()
     return render(request, "products/search_results.html", {"games":games})
     
 def all_brands(request):
@@ -39,7 +46,7 @@ def show_consoles(request, brand):
     else:
         consoles = Console.objects.filter(brand = brand)
         return render(request, "products/show_consoles.html", {'consoles':consoles, 'brand':brand})
-    
+
     
 def show_games(request, console):
     console_type = Console.objects.get(console_type=console)
@@ -49,5 +56,10 @@ def show_games(request, console):
         return redirect('search_results', query)
     else:
         games=Game.objects.filter(console=console_type)
+        for game in games:
+            try:
+                urllib.request.urlopen(game.image)
+            except urllib.error.HTTPError as e:
+                Game.objects.filter(title=game.title).delete()
         return render(request, "products/show_games.html", {"games":games, "console": console_type})
     
