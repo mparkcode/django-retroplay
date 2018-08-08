@@ -25,7 +25,8 @@ def search_results(request, query):
             urllib.request.urlopen(game.image)
         except urllib.error.HTTPError as e:
             Game.objects.filter(title=game.title).delete()
-    return render(request, "products/search_results.html", {"games":games})
+        games=Game.objects.filter(console=console_type)
+        return render(request, "products/search_results.html", {"games":games})
     
 def all_brands(request):
     search_query = request.GET.get("query")
