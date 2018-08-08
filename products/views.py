@@ -61,5 +61,6 @@ def show_games(request, console):
                 urllib.request.urlopen(game.image)
             except urllib.error.HTTPError as e:
                 Game.objects.filter(title=game.title).delete()
-            return render(request, "products/show_games.html", {"games":games, "console": console_type})
+        games=Game.objects.filter(console=console_type)
+        return render(request, "products/show_games.html", {"games":games, "console": console_type})
     
