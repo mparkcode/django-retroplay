@@ -26,12 +26,12 @@ def search_results(request, query):
             urllib.request.urlopen(game.image)
         except urllib.error.HTTPError as e:
             Game.objects.filter(title=game.title).delete()
-        games = Game.objects.all()
+    games = Game.objects.all()
     for i in query_list:
         games = games.filter(title__icontains=i)
-        paginator = Paginator(games, 15)
-        page = request.GET.get('page')
-        games=paginator.get_page(page)
+    paginator = Paginator(games, 15)
+    page = request.GET.get('page')
+    games=paginator.get_page(page)
     return render(request, "products/search_results.html", {"games":games})
     
 def all_brands(request):
