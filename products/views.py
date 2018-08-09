@@ -4,6 +4,7 @@ from .models import Game, Console, Brand
 import http.client
 import urllib.request
 import urllib.error
+from django.core.paginator import Paginator
 
 
 # Create your views here.
@@ -28,6 +29,9 @@ def search_results(request, query):
         games = Game.objects.all()
     for i in query_list:
         games = games.filter(title__icontains=i)
+        paginator = Paginator(games, 15)
+        page = request.GET.get('page')
+        games=paginator.get_page(page)
     return render(request, "products/search_results.html", {"games":games})
     
 def all_brands(request):
@@ -59,11 +63,13 @@ def show_games(request, console):
         return redirect('search_results', query)
     else:
         games=Game.objects.filter(console=console_type)
+        paginator = Paginator(games, 15)
+        page = request.GET.get('page')
+        games=paginator.get_page(page)
         for game in games:
             try:
                 urllib.request.urlopen(game.image)
             except urllib.error.HTTPError as e:
                 Game.objects.filter(title=game.title).delete()
-        games=Game.objects.filter(console=console_type)
         return render(request, "products/show_games.html", {"games":games, "console": console_type})
     

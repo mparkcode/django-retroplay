@@ -317,6 +317,25 @@ a.nav-link:after{
   opacity: 1;
 }
 
+.pagination{
+    width: 100%;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+}
+
+.pagination a{
+    color: #e7e7e7;
+}
+
+.pagination .pagination-angle{
+    margin: 0 0.1em;
+    display: inline-block;
+    padding: 0.5em;
+    color: #333;
+    font-size: 20px;
+}
+
 /*---------------------------------------------------------------------css for displaying brands, consoles & games*/
 
 
