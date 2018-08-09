@@ -388,7 +388,17 @@ a.nav-link:after{
 
 /*---------------------------------------------------------------------end sidebar menu*/
 
+/*---------------------------------------------------------------------css for account screens*/
 
+.account-management-area{
+    width: 50%;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+}
+
+/*---------------------------------------------------------------------end css for account screens*/
 
 @media only screen and (max-width: 990px) {
     .sidebar-menu{position: static; width:100%}

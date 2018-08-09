@@ -41,7 +41,7 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class="dropdown">
-                            <a href="{% url 'all_brands' %}" class="dropdown-toggle nav-link after" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Games <span class="caret"></span></a>
+                            <a href="{% url 'all_brands' %}" class="dropdown-toggle nav-link after" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Games shop<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 {% for brand in all_brands %}
                                     <li><a href="{% url 'show_consoles' brand=brand.name %}">{{brand.name}}</a></li>
@@ -53,9 +53,13 @@
                     </ul>
                     
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a class="nav-link after" href="#">Login</a></li>
-                        <li><a class="nav-link after" href="#">Register</a></li>
-                        <!--<li><a class="nav-link after" href="#">Logout</a></li>-->
+                        {% if user.is_authenticated %}
+                            <li><a class="nav-link after" href="{% url 'profile' %}">Profile</a></li>
+                            <li><a class="nav-link after" href="{% url 'logout' %}">Logout</a></li>
+                        {% else %}
+                            <li><a class="nav-link after" href="{% url 'login' %}">Login</a></li>
+                            <li><a class="nav-link after" href="{% url 'register' %}">Register</a></li>
+                        {% endif %}
                         <li><a class="nav-link after" href="#">Cart</a></li>
                     </ul>
                 </div>

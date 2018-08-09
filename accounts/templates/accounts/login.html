@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+{% load bootstrap_tags %}
+{% block content%}
+<div class="spacer"></div>
+<div class="container">
+    <section class="content">
+        <div class="account-management-area">
+            <div class="welcome">
+                <h1>Login</h1>
+            </div>
+            <div class="fade-line-wtob"></div>
+            <form method="POST">
+                {% csrf_token %}
+                {{form | as_bootstrap}}
+                
+                
+                <button type="submit" class="btn btn-info">Login</button>
+                
+            </form>
+            <br>
+            Forgot your password? <a href="#">Click here</a>
+        </div>
+    </section>
+</div>    
+{% endblock content %}
