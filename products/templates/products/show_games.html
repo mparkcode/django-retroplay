@@ -15,7 +15,11 @@
                     <div class="col-md-4 col-xs-6 brand-group game-group">
                         <div class="game-container">
                             <img class="console-img game-img" src="{{game.image}}"></img>
-                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                            <form action="{% url 'add_to_cart' %}" method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" name="game_id" value="{{ game.id }}"/>
+                                <input type="submit" value="Add To Cart" class="btn btn-default"/>
+                            </form>
                         </div>
                         
                         <div>
