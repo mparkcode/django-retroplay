@@ -16,3 +16,4 @@ psycopg2==2.7.5
 python-dateutil==2.7.3
 pytz==2018.5
 s3transfer==0.1.13
+stripe==2.4.0

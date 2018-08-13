@@ -299,7 +299,7 @@ a.nav-link:after{
     transition: .5s ease;
 }
 
-.game-container a {
+.game-container .add-to-cart-btn {
   position: absolute;
   transition: .5s ease;
   opacity: 0;
@@ -313,8 +313,12 @@ a.nav-link:after{
   opacity: 0.3;
 }
 
-.game-container:hover a {
+.game-container:hover .add-to-cart-btn {
   opacity: 1;
+}
+
+.add-to-cart-btn:hover{
+    color:#fa9b01;
 }
 
 .pagination{
@@ -336,7 +340,7 @@ a.nav-link:after{
     font-size: 20px;
 }
 
-/*---------------------------------------------------------------------css for displaying brands, consoles & games*/
+/*---------------------------------------------------------------------end css for displaying brands, consoles & games*/
 
 
 /*---------------------------------------------------------------------sidebar menu*/
@@ -455,6 +459,10 @@ a.nav-link:after{
 
 .cart-total{
     text-align: right;
+}
+
+.cart-buttons{
+    text-align: center;
 }
 
 /*---------------------------------------------------------------------end css for cart*/

@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django_forms_bootstrap',
     'products',
     'accounts',
-    'cart'
+    'cart',
+    'checkout'
 ]
 
 MIDDLEWARE = [
@@ -71,7 +72,8 @@ TEMPLATES = [
                 'django.template.context_processors.media',
                 'retroplay.context_processors.get_brands',
                 'retroplay.context_processors.get_consoles',
-                'retroplay.context_processors.search_games'
+                'retroplay.context_processors.search_games',
+                'retroplay.context_processors.item_quantity'
             ],
         },
     },
@@ -117,5 +119,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+STRIPE_PUBLISHABLE = os.environ.get('STRIPE_PUBLISHABLE_KEY')
+STRIPE_SECRET = os.environ.get('STRIPE_SECRET_KEY')
 
-
+MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"

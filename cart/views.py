@@ -29,6 +29,7 @@ def add_to_cart(request):
     #  Save the cart back to the session
     request.session['cart'] = cart 
     
+    
     #  Redirect somewhere
     return redirect('view_cart')
     
