@@ -14,7 +14,7 @@
                     {% for game in games %}
                     <div class="col-md-4 col-xs-6 brand-group game-group">
                         <div class="game-container">
-                            <img class="console-img game-img" src="{{game.image}}"></img>
+                            <img class="console-img game-img" src="{{MEDIA_URL}}{{game.image}}"></img>
                             <a href="#" class="btn btn-primary">Add to Cart</a>
                         </div>
                         

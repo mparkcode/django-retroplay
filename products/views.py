@@ -21,14 +21,6 @@ def search_results(request, query):
     games = Game.objects.all()
     for i in query_list:
         games = games.filter(title__icontains=i)
-    for game in games:
-        try:
-            urllib.request.urlopen(game.image)
-        except urllib.error.HTTPError as e:
-            Game.objects.filter(title=game.title).delete()
-    games = Game.objects.all()
-    for i in query_list:
-        games = games.filter(title__icontains=i)
     paginator = Paginator(games, 15)
     page = request.GET.get('page')
     games=paginator.get_page(page)
@@ -66,10 +58,5 @@ def show_games(request, console):
         paginator = Paginator(games, 15)
         page = request.GET.get('page')
         games=paginator.get_page(page)
-        for game in games:
-            try:
-                urllib.request.urlopen(game.image)
-            except urllib.error.HTTPError as e:
-                Game.objects.filter(title=game.title).delete()
         return render(request, "products/show_games.html", {"games":games, "console": console_type})
     

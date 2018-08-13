@@ -400,6 +400,65 @@ a.nav-link:after{
 
 /*---------------------------------------------------------------------end css for account screens*/
 
+
+
+/*---------------------------------------------------------------------css for cart*/
+
+.item-in-cart{
+    margin: 10px 0;
+    padding: 10px 0;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.cart-img-area{
+    width: 100%;
+    text-align: center;
+}
+
+.cart-img{
+    margin: 0 auto;
+    width:100%;
+}
+
+.cart-subheading{
+    margin-bottom: 20px;
+}
+
+.item-update{
+    border: none;
+    background: none;
+    padding: 0;
+    font-size: 85%;
+    display: inline;
+}
+
+.delete-from-cart{
+    color: red;
+}
+
+.update-quantity{
+    color: blue;
+}
+
+.quantity{
+    height: 30px;
+    padding: 10px;
+    width: 70%;
+    border: 1px solid black;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.item-quantity{
+    line-height: 10px;
+}
+
+.cart-total{
+    text-align: right;
+}
+
+/*---------------------------------------------------------------------end css for cart*/
+
 @media only screen and (max-width: 990px) {
     .sidebar-menu{position: static; width:100%}
     .spacer{height: 25px;}

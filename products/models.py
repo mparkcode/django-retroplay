@@ -22,7 +22,7 @@ class Console(models.Model):
     
 class Game(models.Model):
     title = models.CharField(max_length=254, default='')
-    image = models.CharField(max_length=254, default='')
+    image = models.ImageField(upload_to='images')
     price = models.DecimalField(max_digits=10, decimal_places=2)
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
     console = models.ForeignKey(Console, on_delete=models.CASCADE)
