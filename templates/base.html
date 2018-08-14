@@ -62,7 +62,13 @@
                             <li><a class="nav-link after" href="{% url 'login' %}">Login</a></li>
                             <li><a class="nav-link after" href="{% url 'register' %}">Register</a></li>
                         {% endif %}
-                        <li><a class="nav-link after" href="{% url 'view_cart' %}">Cart {{number_of_items}}</a></li>
+                        {% if request.get_full_path == checkout %}
+                            <li><a class="nav-link after" href="{% url 'view_cart' %}">Cart 0</a></li>
+                        {% else %}
+                            <li><a class="nav-link after" href="{% url 'view_cart' %}">Cart {{number_of_items}}</a></li>
+                        {% endif %}
+                            
+                        
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
@@ -70,6 +76,8 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
+    
+    
 
     {% block content %} 
     {% endblock %}

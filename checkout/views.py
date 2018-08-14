@@ -5,10 +5,10 @@ from .forms import OrderForm, MakePaymentForm
 from cart.utils import get_cart_items_and_total
 from django.utils import timezone
 from django.contrib import messages
-from .utils import save_order_items, charge_card, send_confirmation_email
+from .utils import save_order_items, charge_card
 import stripe
 from django.conf import settings
-
+from .models import Order
 # Create your views here.
 def checkout(request):
     if request.method=="POST":
@@ -37,16 +37,11 @@ def checkout(request):
             if customer.paid:
                 messages.error(request, "You have successfully paid")
 
-                # Send Email
-                # send_confirmation_email(request.user.email, request.user, items_and_total)
-        
-                #Clear the Cart
-                del request.session['cart']
-                return redirect("index")
+                
+
+                return redirect("confirmation")
             else:
                 messages.error(request, "Unable to take payment")
-        else:
-            return redirect("all_brands") 
     else:
         order_form = OrderForm()
         payment_form = MakePaymentForm()
@@ -58,3 +53,10 @@ def checkout(request):
         context.update(cart_items_and_total)
         
     return render(request, "checkout/checkout.html", context)
+    
+def confirmation(request):
+    cart = request.session.pop('cart', {})
+    context = get_cart_items_and_total(cart)
+    billing_details = Order.objects.latest('id')
+    context.update({'billing_details':billing_details})
+    return render(request, "checkout/confirmation.html",  context)

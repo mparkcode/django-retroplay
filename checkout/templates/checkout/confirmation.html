@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% block content %}
+<div class="spacer"></div>
+
+    <div class="container">
+        <section class="content">
+            <div class="row">
+                <div class="col-md-8 col-sm-12">
+                    <div class="welcome">
+                        <h1>Congratulations!</h1>
+                    </div>
+                    <div class="fade-line-wtob"></div>
+                    <div class="text-center">
+                        <h3>Your retro haul is on the way</h3>
+                    </div>
+                    <h4 class="mt-40">Order Details</h4>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            {% for item in cart %}
+                                <div class="row item-in-cart">
+                                    <div class="col-xs-12 col-sm-2">
+                                        <div class="cart-img-area">
+                                            <img class="cart-img" src="{{MEDIA_URL}}{{item.game.image}}"></img>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-4">
+                                        <div class="cart-subheading">
+                                            <small>game</small>
+                                        </div>
+                                        <div class="game-title">
+                                            <h5>{{item.game.title}}</h5>
+                                        </div>    
+                                        <p>{{item.game.brand}} {{ item.game.console }}</p>
+                                    </div>
+                                    <div class="col-xs-5 col-sm-2">
+                                        <div class="cart-subheading">
+                                            <small>price</small>
+                                        </div>
+                                        <p>€ {{item.game.price}}</p>
+                                    </div>
+                                    <div class="col-xs-7 col-sm-2">
+                                        <div class="cart-subheading">
+                                            <small>quantity</small>
+                                        </div>
+                                        <p>{{item.quantity}}</p>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-2">
+                                        <div class="cart-subheading">
+                                            <small>total price</small>
+                                        </div>
+                                        <p>€ {{item.total}}</p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <div class="sidebar-menu">
+                        
+                        <div class="sidebar-navigation">
+                            <div class="text-center">
+                                <h3 class="checkout-header">Billing Info</h3>
+                            </div>
+                                <div class="checkout-item">
+                                    <strong><p class="m-0">{{billing_details.full_name}}</p></strong>
+                                    <p class="m-0">{{billing_details.street_address1}}</p>
+                                    <p class="m-0">{{billing_details.street_address2}}</p>
+                                    <p class="m-0">{{billing_details.town_or_city}}</p>
+                                    <p class="m-0">{{billing_details.county}}</p>
+                                    <p class="m-0">{{billing_details.country}}</p>
+                                    <p class="m-0">{{billing_details.postcode}}</p>
+                                </div>
+                            <div class="text-center">
+                                <h3>Total Paid:  € {{total}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+{% endblock %}

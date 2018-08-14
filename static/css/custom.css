@@ -498,6 +498,14 @@ a.nav-link:after{
     margin-top: 10px;
 }
 
+.mt-40{
+    margin-top: 40px;
+}
+
+.m-0{
+    margin: 0;
+}
+
 @media only screen and (max-width: 990px) {
     .sidebar-menu{position: static; width:100%}
     .spacer{height: 25px;}
