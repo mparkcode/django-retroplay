@@ -23,7 +23,7 @@
                         <h1>Checkout</h1>
                     </div>
                     <div class="fade-line-wtob"></div>
-                    <form role="form" method="POST" action="{% url 'checkout' %}">
+                    <form role="form" method="POST" id="payment-form" action="{% url 'checkout' %}">
                         {% csrf_token %}
                         <div class="billing-area">
                             <h3>Billing Info</h3>
@@ -120,50 +120,35 @@
                     </form>
                 </div>
                 <div class="col-md-4 col-sm-12">
-                    items to buy goes here
+                    <div class="sidebar-menu">
+                        
+                        <div class="sidebar-navigation">
+                            <div class="text-center">
+                                <h3 class="checkout-header">Your Games</h3>
+                            </div>
+                            {% for item in cart %}
+                                <div class="checkout-item">
+                                    <div class="row">
+                                        <div class="col-xs-5">
+                                            <img class="checkout-img" src="{{MEDIA_URL}}{{item.game.image}}"></img>
+                                        </div>
+                                        <div class="col-xs-7">
+                                            <p><strong>{{item.game.title}}</strong></p>
+                                            <p>quantity: {{item.quantity}}</p>
+                                            <p>total: {{item.total}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            <div class="text-center">
+                                <h3>Cart total:  € {{total}}</h3>
+                                <a href="{% url 'view_cart' %}" class="btn btn-info">Edit</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </div>
-
-    
-    <!--<div class="row">-->
-    <!--    {% for item in cart %}-->
-    <!--    <div class="col-xs-3">-->
-    <!--        <h3>{{ item.game.title }}</h3>-->
-    <!--        <img height="100" src="{{MEDIA_URL}}{{item.game.image}}"></img>-->
-    <!--        <p>Price: {{ item.game.price }}</p>-->
-    <!--        <p>Quantity: {{ item.quantity }}</p>-->
-    <!--        <p>total: {{ item.total }}</p>-->
-    <!--    </div>-->
-        
-    <!--    {% endfor %}-->
-    <!--</div>-->
-    <!--<hr>-->
-    <!--<h2 style="display:inline-block">Cart total: {{total}}</h2>-->
-    <!--<hr>-->
-    
-    <!--<form role="form" method="POST" id="payment-form" action="{% url 'checkout' %}">-->
-        
-    <!--    <legend>Payment Details</legend>-->
-    
-    <!--    <div id="credit-card-errors" style="display:none">-->
-    <!--      <div class="alert-message block-message error" id="stripe-error-message"></div>-->
-    <!--    </div>-->
-    <!--    <div class="form-group col-md-6">-->
-    <!--        {{ order_form|as_bootstrap }}-->
-    <!--    </div>-->
-    
-    <!--    <div class="form-group col-md-6">-->
-    <!--        {{ payment_form|as_bootstrap }}-->
-    <!--    </div>-->
-        
-    <!--    {% csrf_token %}-->
-    <!--    <div class="form-group col-md-12">-->
-    <!--      <input class="btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">-->
-    <!--    </div>-->
-    
-    <!--</form>-->
-    
     
 {% endblock %}
