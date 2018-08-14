@@ -467,6 +467,10 @@ a.nav-link:after{
 
 /*---------------------------------------------------------------------end css for cart*/
 
+
+
+
+
 @media only screen and (max-width: 990px) {
     .sidebar-menu{position: static; width:100%}
     .spacer{height: 25px;}

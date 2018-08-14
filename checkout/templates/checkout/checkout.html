@@ -14,48 +14,156 @@
 {% endblock head_js %}
 
 {% block content %}
-    
-    
-    <h2>Pay Here You Consumerist Pig <i class="fa fa-piggy-bank" style="font-size:60px;color:pink;"></i></h2>
-    
-    
-    <div class="row">
-        {% for item in cart %}
-        <div class="col-xs-3">
-            <h3>{{ item.game.title }}</h3>
-            <img height="100" src="{{MEDIA_URL}}{{item.game.image}}"></img>
-            <p>Price: {{ item.game.price }}</p>
-            <p>Quantity: {{ item.quantity }}</p>
-            <p>total: {{ item.total }}</p>
-        </div>
-        
-        {% endfor %}
+<div class="spacer"></div>
+    <div class="container">
+        <section class="content">
+            <div class="row">
+                <div class="col-md-8 col-sm-12">
+                    <div class="welcome">
+                        <h1>Checkout</h1>
+                    </div>
+                    <div class="fade-line-wtob"></div>
+                    <form role="form" method="POST" action="{% url 'checkout' %}">
+                        {% csrf_token %}
+                        <div class="billing-area">
+                            <h3>Billing Info</h3>
+                            <div id="credit-card-errors" style="display:none">
+                                <div class="alert-message block-message error" id="stripe-error-message"></div>
+                            </div>
+                            <div class="form-group">
+                                {{order_form.full_name.label_tag}}
+                                {{order_form.full_name.errors}}
+                                {{order_form.full_name}}
+                            </div>
+                            <div class="form-group">
+                                {{order_form.phone_number.label_tag}}
+                                {{order_form.phone_number.errors}}
+                                {{order_form.phone_number}}
+                            </div>
+                            <div class="form-group">
+                                {{order_form.street_address1.label_tag}}
+                                {{order_form.street_address1.errors}}
+                                {{order_form.street_address1}}
+                            </div>
+                            <div class="form-group">
+                                {{order_form.street_address2.label_tag}}
+                                {{order_form.street_address2.errors}}
+                                {{order_form.street_address2}}
+                            </div>
+                            <div class="form-group">
+                                {{order_form.town_or_city.label_tag}}
+                                {{order_form.town_or_city.errors}}
+                                {{order_form.town_or_city}}
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <div class="form-group">
+                                        {{order_form.county.label_tag}}
+                                        {{order_form.county.errors}}
+                                        {{order_form.county}}
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="form-group">
+                                        {{order_form.country.label_tag}}
+                                        {{order_form.country.errors}}
+                                        {{order_form.country}}
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="form-group">
+                                        {{order_form.postcode.label_tag}}
+                                        {{order_form.postcode.errors}}
+                                        {{order_form.postcode}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="billing-area">
+                            <h3>Payment Info</h3>
+                            <div class="form-group">
+                                {{payment_form.credit_card_number.label_tag}}
+                                {{payment_form.credit_card_number.errors}}
+                                {{payment_form.credit_card_number}}
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <div class="form-group">
+                                        {{payment_form.expiry_month.label_tag}}
+                                        {{payment_form.expiry_month.errors}}
+                                        {{payment_form.expiry_month}}
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="form-group">
+                                        {{payment_form.expiry_year.label_tag}}
+                                        {{payment_form.expiry_year.errors}}
+                                        {{payment_form.expiry_year}}
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="form-group">
+                                        {{payment_form.cvv.label_tag}}
+                                        {{payment_form.cvv.errors}}
+                                        {{payment_form.cvv}}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    {{payment_form.stripe_id}}
+                                </div>
+                            </div>
+                        </div>
+                        {% csrf_token %}
+                        <div class="form-group payment-btn-area">
+                            <input class="btn btn-info payment-btn" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    items to buy goes here
+                </div>
+            </div>
+        </section>
     </div>
-    <hr>
-    <h2 style="display:inline-block">Cart total: {{total}}</h2>
-    <hr>
+
     
-    <form role="form" method="POST" id="payment-form" action="{% url 'checkout' %}">
+    <!--<div class="row">-->
+    <!--    {% for item in cart %}-->
+    <!--    <div class="col-xs-3">-->
+    <!--        <h3>{{ item.game.title }}</h3>-->
+    <!--        <img height="100" src="{{MEDIA_URL}}{{item.game.image}}"></img>-->
+    <!--        <p>Price: {{ item.game.price }}</p>-->
+    <!--        <p>Quantity: {{ item.quantity }}</p>-->
+    <!--        <p>total: {{ item.total }}</p>-->
+    <!--    </div>-->
         
-        <legend>Payment Details</legend>
+    <!--    {% endfor %}-->
+    <!--</div>-->
+    <!--<hr>-->
+    <!--<h2 style="display:inline-block">Cart total: {{total}}</h2>-->
+    <!--<hr>-->
     
-        <div id="credit-card-errors" style="display:none">
-          <div class="alert-message block-message error" id="stripe-error-message"></div>
-        </div>
-        <div class="form-group col-md-6">
-            {{ order_form|as_bootstrap }}
-        </div>
-    
-        <div class="form-group col-md-6">
-            {{ payment_form|as_bootstrap }}
-        </div>
+    <!--<form role="form" method="POST" id="payment-form" action="{% url 'checkout' %}">-->
         
-        {% csrf_token %}
-        <div class="form-group col-md-12">
-          <input class="btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
-        </div>
+    <!--    <legend>Payment Details</legend>-->
     
-    </form>
+    <!--    <div id="credit-card-errors" style="display:none">-->
+    <!--      <div class="alert-message block-message error" id="stripe-error-message"></div>-->
+    <!--    </div>-->
+    <!--    <div class="form-group col-md-6">-->
+    <!--        {{ order_form|as_bootstrap }}-->
+    <!--    </div>-->
+    
+    <!--    <div class="form-group col-md-6">-->
+    <!--        {{ payment_form|as_bootstrap }}-->
+    <!--    </div>-->
+        
+    <!--    {% csrf_token %}-->
+    <!--    <div class="form-group col-md-12">-->
+    <!--      <input class="btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">-->
+    <!--    </div>-->
+    
+    <!--</form>-->
     
     
 {% endblock %}

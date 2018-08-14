@@ -467,6 +467,20 @@ a.nav-link:after{
 
 /*---------------------------------------------------------------------end css for cart*/
 
+
+.billing-area{
+    border-bottom: 1px solid #e7e7e7;
+    padding-bottom: 20px;
+}
+
+.payment-btn-area{
+    margin-top: 20px;
+}
+
+.payment-btn{
+    width: 100%;
+}
+
 @media only screen and (max-width: 990px) {
     .sidebar-menu{position: static; width:100%}
     .spacer{height: 25px;}

@@ -15,37 +15,43 @@ def checkout(request):
         order_form = OrderForm(request.POST)    
         payment_form = MakePaymentForm(request.POST)
         
-        if order_form.is_valid() and payment_form.is_valid():
-            # Save The Order
-            order = order_form.save(commit=False)
-            order.date = timezone.now()
-            order.save()
+        if payment_form.is_valid():
+            print(' payment form ok')
+            return redirect('index')
         
-            # Save the Order Line Items
-            cart = request.session.get('cart', {})
-            save_order_items(order, cart)
+        # if order_form.is_valid() and payment_form.is_valid():
+        #     # Save The Order
+        #     order = order_form.save(commit=False)
+        #     order.date = timezone.now()
+        #     order.save()
         
-            # Charge the Card
-            items_and_total = get_cart_items_and_total(cart)
-            total = items_and_total['total']
-            stripe_token=payment_form.cleaned_data['stripe_id']
-
-            try:
-                customer = charge_card(stripe_token, total)
-            except stripe.error.CardError:
-                messages.error(request, "Your card was declined!")
-
-            if customer.paid:
-                messages.error(request, "You have successfully paid")
-
-                # Send Email
-                # send_confirmation_email(request.user.email, request.user, items_and_total)
+        #     # Save the Order Line Items
+        #     cart = request.session.get('cart', {})
+        #     save_order_items(order, cart)
         
-                #Clear the Cart
-                del request.session['cart']
-                return redirect("index")
-            else:
-                messages.error(request, "Unable to take payment")
+        #     # Charge the Card
+        #     items_and_total = get_cart_items_and_total(cart)
+        #     total = items_and_total['total']
+        #     stripe_token=payment_form.cleaned_data['stripe_id']
+
+        #     try:
+        #         customer = charge_card(stripe_token, total)
+        #     except stripe.error.CardError:
+        #         messages.error(request, "Your card was declined!")
+
+        #     if customer.paid:
+        #         messages.error(request, "You have successfully paid")
+
+        #         # Send Email
+        #         # send_confirmation_email(request.user.email, request.user, items_and_total)
+        
+        #         #Clear the Cart
+        #         del request.session['cart']
+        #         return redirect("index")
+        #     else:
+        #         messages.error(request, "Unable to take payment")
+        # else:
+        #     return redirect("all_brands") 
     else:
         order_form = OrderForm()
         payment_form = MakePaymentForm()
@@ -55,5 +61,5 @@ def checkout(request):
         if cart_items_and_total['total'] == 0:
             return redirect("index")
         context.update(cart_items_and_total)
-    
+        
     return render(request, "checkout/checkout.html", context)
