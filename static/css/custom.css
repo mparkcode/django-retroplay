@@ -356,6 +356,7 @@ a.nav-link:after{
     padding: 10px;
     width: 300px;
     background: #f9f9f9;
+    margin-top:40px;
 }
 
 .sidebar-search-form{
@@ -471,7 +472,7 @@ a.nav-link:after{
 
 /*---------------------------------------------------------------------end css for cart*/
 
-
+/*---------------------------------------------------------------------css for checkout area*/
 .billing-area{
     border-bottom: 1px solid #e7e7e7;
     padding-bottom: 20px;
@@ -513,6 +514,23 @@ a.nav-link:after{
 .checkout-cofirmation-items{
     margin-bottom: 80px;
 }
+
+/*---------------------------------------------------------------------end css for checkout area*/
+
+/*---------------------------------------------------------------------css for news area*/
+
+.news-headline-area{
+    margin-bottom: 20px;
+}
+
+.news-img{
+    margin: 0 auto;
+    width:80%;
+    padding-top: 10px;
+}
+
+
+/*---------------------------------------------------------------------end css for news area*/
 
 @media only screen and (max-width: 990px) {
     .sidebar-menu{position: static; width:100%}
