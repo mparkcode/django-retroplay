@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles%}
+{% load bootstrap_tags %}
 {% block content %}
 <div class="spacer"></div>
 <div class="container">
@@ -19,6 +20,32 @@
                     </div>
                 </div>
                 <a href="{% url 'all_news' %}" class="btn btn-info mt-40">Back to news</a>
+                
+                {% if comments %}
+                    <h3 class="comment-heading-underline">Comments</h3>
+                    {% for comment in comments %}
+                        <div class="comment-background {% cycle 'cb-grey' 'cb-white' %}">
+                            <div class="text-right">
+                                <small class="text-right">{{comment.date}}</small>
+                            </div>
+                            <strong><p>{{comment.author}}</p></strong>
+                            <p>{{comment.content}}</p>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <h3 class="comment-heading-underline">No comments</h3>
+                {% endif %}
+                {% if user.is_authenticated %}
+                    <div class="comment-form-area">
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            {{form | as_bootstrap }}
+                            <input class="btn btn-info" type="submit" value="Submit"/>
+                        </form>
+                    </div>
+                {% else %}
+                    <h3>Login to comment</h3>
+                {% endif %}
             </div>
             <div class="col-md-4 col-sm-12">
                 {% include 'products/search.html' %}

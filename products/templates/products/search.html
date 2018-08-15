@@ -2,7 +2,6 @@
 <div class="sidebar-menu">
     <div class="sidebar-search-form">
         <form>
-            {% csrf_token %}
             {{ game_search_form | as_bootstrap }}
             <button type="submit" class="btn btn-info">Search</button>
         </form>

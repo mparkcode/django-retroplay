@@ -14,3 +14,12 @@ class Article(models.Model):
     
     def __str__(self):
         return self.title
+        
+class Comment(models.Model):
+    content = models.TextField()
+    date = models.DateTimeField(blank=True, null=True, default=timezone.now)
+    author = models.ForeignKey(User, related_name="comments", null=False, default=1, on_delete=models.CASCADE)
+    article = models.ForeignKey(Article, related_name="comments", null=False, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.content
