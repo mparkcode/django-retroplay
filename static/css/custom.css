@@ -1,6 +1,8 @@
 body{
     margin: 0;
     padding: 0;
+    position: relative;
+    padding-bottom: 340px;
 }
 
 /*---------------------------------------------------------------------Navbar*/
@@ -122,6 +124,7 @@ a.nav-link:after{
 .content{
     margin-top: 80px;
     margin-bottom: 80px;
+    padding-top: 40px;
 }
 
 .welcome{
@@ -155,9 +158,11 @@ a.nav-link:after{
     left: 0;
     bottom: 0;
     width: 100%;
+    height: 236px;
     background-color: #000;
     color: white;
     text-align: center;
+    position: absolute;
 }
 
 .social-link{
@@ -350,7 +355,6 @@ a.nav-link:after{
     border-radius: 5px;
     padding: 10px;
     width: 300px;
-    /*position: fixed;*/
     background: #f9f9f9;
 }
 
@@ -506,6 +510,10 @@ a.nav-link:after{
     margin: 0;
 }
 
+.checkout-cofirmation-items{
+    margin-bottom: 80px;
+}
+
 @media only screen and (max-width: 990px) {
     .sidebar-menu{position: static; width:100%}
     .spacer{height: 25px;}
@@ -515,7 +523,9 @@ a.nav-link:after{
 
 @media only screen and (max-width: 600px) {
     #logo {font-size: 20px;}
-    .parallax{width:100%;}
+    body{padding-bottom: 0px;}
+    .page-footer{position: relative; height: auto;}
+    .parallax{width:100%; background-attachment: scroll;}
     .sonic{background-image: url('/static/images/sonicsmall.png');}
     .streetfighter{background-image: url('/static/images/streetfightersmall.jpg');}
     .pacman{background-image: url('/static/images/Pacmansmall.jpg');}
