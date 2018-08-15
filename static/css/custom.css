@@ -523,10 +523,28 @@ a.nav-link:after{
     margin-bottom: 20px;
 }
 
-.news-img{
+.news-img-thumbnail{
     margin: 0 auto;
     width:80%;
-    padding-top: 10px;
+    height: 150px;
+    padding: 10px;
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+}
+
+.news-img-thumbnail-area{
+    width: 100%;
+    text-align: center;
+}
+
+.news-img-area{
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.news-img{
+    width: 50%;
+    margin: 0 auto;
 }
 
 
@@ -547,5 +565,6 @@ a.nav-link:after{
     .sonic{background-image: url('/static/images/sonicsmall.png');}
     .streetfighter{background-image: url('/static/images/streetfightersmall.jpg');}
     .pacman{background-image: url('/static/images/Pacmansmall.jpg');}
+    .news-img-thumbnail{width: 60%;}
     .social-link{height: 40px; width: 40px; font-size: 30px}
 }

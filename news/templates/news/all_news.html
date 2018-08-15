@@ -15,22 +15,38 @@
                         {% for article in articles %}
                             <div class="row item-in-cart">
                                 <div class="col-xs-12 col-sm-4">
-                                    <div class="cart-img-area">
-                                        <img class="news-img" src="{{MEDIA_URL}}{{article.image}}"></img>
+                                    <div class="news-img-thumbnail-area">
+                                        <img class="news-img-thumbnail" src="{{MEDIA_URL}}{{article.image}}"></img>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-8">
                                     <div class="news-headline-area">
-                                        <h4>{{article.title}}</h4>
+                                        <a href="{% url 'view_article' article.id %}"><h4>{{article.title}}</h4></a>
                                     </div>
                                     <div>
                                         <p>{{article.content | truncatewords:40}}</p>
-                                        <a href="{% url 'view_article' article.id %}">read more</a>
                                     </div>
                                 </div>
                             </div>
                         {% endfor %}
                     </div>
+                </div>
+                <div class="pagination">
+                    {% if articles.has_previous %}
+                        <a class="pagination-angle" href="?page=1"><i class="fas fa-angle-double-left"></i></a>
+                        <a class="pagination-angle" href="?page={{articles.previous_page_number}}"><i class="fas fa-angle-left"></i></a>
+                    {% endif %}
+                    {% for num in articles.paginator.page_range%}
+                        {% if articles.number == num %}
+                            <strong>{{num}}</strong>
+                        {% else %}
+                            <a href="?page={{num}}">{{num}}</a>
+                        {% endif %}
+                    {% endfor %}
+                    {% if articles.has_next %}
+                        <a class="pagination-angle" href="?page={{articles.next_page_number}}"><i class="fas fa-angle-right"></i></a>
+                        <a class="pagination-angle" href="?page={{articles.paginator.num_pages}}"><i class="fas fa-angle-double-right"></i></a>
+                    {% endif %}
                 </div>
             </div>
             <div class="col-md-4 col-sm-12">
