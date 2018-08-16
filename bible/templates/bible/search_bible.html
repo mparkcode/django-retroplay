@@ -1,0 +1,18 @@
+{% load bootstrap_tags %}
+<h1>Get_games</h1>
+<form>
+    {{form | as_bootstrap}}
+    <input type="submit" class="btn btn-info" value="Search"/>
+</form>
+{% for game in games%}
+    <p>{{game.name}}</p>
+    <p>{{game.first_release_date}}</p>
+    <p>{{game.summary}}</p>
+    <p>{{game.rating}}</p>
+    <a href="{{game.url}}">website</a>
+    <img src="https:{{game.cover.url}}"></img>
+    {% for screenshot in game.screenshots %}
+        <img src="https:{{screenshot.url}}"></img>
+    {% endfor %}
+    {{game}}
+{% endfor %}
