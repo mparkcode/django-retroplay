@@ -579,6 +579,30 @@ a.nav-link:after{
 
 /*---------------------------------------------------------------------end css for news area*/
 
+
+/*---------------------------------------------------------------------css for bible area*/
+
+.game-bible-form-submit{
+    padding-left: 0;
+    background: none;
+    border: none;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #337ab7;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.game-bible-form-submit:hover{
+    transition:0.5s color ease;
+    color:#fa9b01 !important;
+    text-decoration: underline;
+}
+
+
+/*---------------------------------------------------------------------end css for bible area*/
+
 @media only screen and (max-width: 990px) {
     .sidebar-menu{position: static; width:100%}
     .spacer{height: 25px;}

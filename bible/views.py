@@ -23,3 +23,15 @@ def get_games(request):
             games.append(game)
         return render(request, "bible/search_bible.html", {'games':games, 'form':form})    
     return render(request, "bible/search_bible.html", {'games':games, 'form':form})
+    
+def game_detail(request):
+    game_id = int(request.GET.get("game_id"))
+    r = igdb(os.environ.get("IGDB_API_KEY"))
+    result = r.games(game_id)
+    for g in result.body:
+        game = g
+    if 'cover' in game:
+        game['cover']['url']=game['cover']['url'].replace("t_thumb","t_cover_big")
+    if 'first_release_date' in game:
+        game['first_release_date'] = datetime.utcfromtimestamp(int(game['first_release_date'] / 1000)).strftime('%Y/%m/%d')
+    return render(request, "bible/game_detail.html", {'game':game})

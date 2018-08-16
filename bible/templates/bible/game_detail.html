@@ -8,16 +8,13 @@
         <div class="row">
             <div class="col-md-8 col-sm-12">
                 <div class="welcome">
-                    <h1>Game Bible</h1>
+                    <h1>{{game.name}}</h1>
                 </div>
                 <div class="fade-line-wtob"></div>
                 <div class="row">
                     <div class="col-xs-12">
-                        <form>
-                            {{form | as_bootstrap}}
-                            <input type="submit" class="btn btn-info" value="Search"/>
-                        </form>
-                        {% for game in games %}
+                        
+                        
                             <div class="row item-in-cart">
                                 <div class="col-xs-12 col-sm-4">
                                     <div class="news-img-thumbnail-area">
@@ -29,18 +26,14 @@
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-8">
-                                    <div class="news-headline-area">
-                                        <form action="{% url 'game_detail' %}">
-                                            <input type="hidden" name="game_id" value={{game.id}}>
-                                            <input class="game-bible-form-submit" type="submit" value="{{game.name}}">
-                                        </form>
-                                    </div>
+                                    <a href="{{game.url}}" target="_blank">Find out more</a>
+                                    <p>{{game.summary}}</p>
                                     <div>
                                         <p><small><strong>Release date: </strong></small>{{game.first_release_date}}</p>
                                     </div>
                                 </div>
                             </div>
-                        {% endfor %}
+
                     </div>
                 </div>
             </div>
