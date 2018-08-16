@@ -13,27 +13,58 @@
                 <div class="fade-line-wtob"></div>
                 <div class="row">
                     <div class="col-xs-12">
-                        
-                        
-                            <div class="row item-in-cart">
-                                <div class="col-xs-12 col-sm-4">
-                                    <div class="news-img-thumbnail-area">
-                                        {% if game.cover %}
-                                            <img class="news-img-thumbnail" src="https:{{game.cover.url}}"></img>
-                                        {% else %}
-                                            <img class="news-img-thumbnail" src="{{MEDIA_URL}}images/game-controller-icon.png"></img>
-                                        {% endif %}
-                                    </div>
+                        <div class="row item-in-cart">
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="news-img-thumbnail-area">
+                                    {% if game.cover %}
+                                        <img class="igdb-img" src="https:{{game.cover.url}}"></img>
+                                    {% else %}
+                                        <img class="igdb-img" src="{{MEDIA_URL}}images/game-controller-icon.png"></img>
+                                    {% endif %}
                                 </div>
-                                <div class="col-xs-12 col-sm-8">
-                                    <a href="{{game.url}}" target="_blank">Find out more</a>
-                                    <p>{{game.summary}}</p>
-                                    <div>
+                                {% if game.first_release_date %}
+                                    <div class="small-info-area">
                                         <p><small><strong>Release date: </strong></small>{{game.first_release_date}}</p>
                                     </div>
+                                {% endif %}
+                                {% if game.rating %}
+                                    <div class="small-info-area">
+                                        <p>Rating</p>
+                                        {% if game.rating <= 33 %}
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar"
+                                                aria-valuenow="{{game.rating}}" aria-valuemin="0" aria-valuemax="100" style="width:{{game.rating}}%">
+                                                    {{game.rating}}%
+                                                </div>
+                                            </div>
+                                        {% elif game.rating > 33 and game.rating <= 66 %}
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar"
+                                                aria-valuenow="{{game.rating}}" aria-valuemin="0" aria-valuemax="100" style="width:{{game.rating}}%">
+                                                    {{game.rating}}%
+                                                </div>
+                                            </div>
+                                        {% else %}
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
+                                                aria-valuenow="{{game.rating}}" aria-valuemin="0" aria-valuemax="100" style="width:{{game.rating}}%">
+                                                    {{game.rating}}%
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                                <div class="small-info-area">
+                                    <a href="{{game.url}}" target="_blank">Find out more</a>
                                 </div>
                             </div>
-
+                            <div class="col-xs-12 col-sm-6">
+                                <p>{{game.summary}}</p>
+                                {% for screenshot in game.screenshots %}
+                                    <img src="http:{{screenshot.url}}"></img>
+                                {% endfor %}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -5,6 +5,7 @@ body{
     padding-bottom: 340px;
 }
 
+
 /*---------------------------------------------------------------------Navbar*/
 
 #logo{
@@ -598,6 +599,19 @@ a.nav-link:after{
     transition:0.5s color ease;
     color:#fa9b01 !important;
     text-decoration: underline;
+}
+
+.igdb{
+    margin: 0 auto;
+    width:80%;
+    height: 300px;
+    padding: 10px;
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+}
+
+.small-info-area{
+    margin-top: 20px;
 }
 
 

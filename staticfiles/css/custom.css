@@ -1,6 +1,10 @@
 body{
     margin: 0;
     padding: 0;
+    position: relative;
+    padding-bottom: 340px;
+    background-image: url({{ STATIC_URL }}"images/14461.jpg");
+    background-size: cover;
 }
 
 /*---------------------------------------------------------------------Navbar*/
@@ -122,6 +126,7 @@ a.nav-link:after{
 .content{
     margin-top: 80px;
     margin-bottom: 80px;
+    padding-top: 40px;
 }
 
 .welcome{
@@ -155,9 +160,11 @@ a.nav-link:after{
     left: 0;
     bottom: 0;
     width: 100%;
+    height: 236px;
     background-color: #000;
     color: white;
     text-align: center;
+    position: absolute;
 }
 
 .social-link{
@@ -349,9 +356,10 @@ a.nav-link:after{
     border: 1px solid #e7e7e7;
     border-radius: 5px;
     padding: 10px;
-    width: 300px;
-    /*position: fixed;*/
+    width: 90%;
     background: #f9f9f9;
+    margin-top:40px !important;
+    margin: 0 auto;
 }
 
 .sidebar-search-form{
@@ -467,9 +475,148 @@ a.nav-link:after{
 
 /*---------------------------------------------------------------------end css for cart*/
 
+/*---------------------------------------------------------------------css for checkout area*/
+.billing-area{
+    border-bottom: 1px solid #e7e7e7;
+    padding-bottom: 20px;
+}
+
+.payment-btn-area{
+    margin-top: 20px;
+}
+
+.payment-btn{
+    width: 100%;
+}
+
+.checkout-item{
+    margin: 0 auto;
+    padding: 5px;
+    border: 1px solid #e7e7e7;
+    width: 90%;
+    background: white;
+}
+
+.checkout-img{
+    width: 100%;
+}
+
+.checkout-header{
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.mt-40{
+    margin-top: 40px;
+}
+
+.m-0{
+    margin: 0;
+}
+
+.checkout-cofirmation-items{
+    margin-bottom: 80px;
+}
+
+/*---------------------------------------------------------------------end css for checkout area*/
+
+/*---------------------------------------------------------------------css for news area*/
+
+.news-headline-area{
+    margin-bottom: 20px;
+}
+
+.news-img-thumbnail{
+    margin: 0 auto;
+    width:80%;
+    height: 150px;
+    padding: 10px;
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+}
+
+.news-img-thumbnail-area{
+    width: 100%;
+    text-align: center;
+}
+
+.news-img-area{
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.news-img{
+    width: 50%;
+    margin: 0 auto;
+}
+
+.comment-heading-underline{
+    border-bottom: 1px solid #e7e7e7;
+    padding-bottom: 10px;
+    margin-bottom: 0px;
+}
+
+.comment-form-area{
+    width: 100%;
+    background: #f9f9f9;
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+}
+
+.comment-background{
+    padding: 20px;
+    border-bottom: 1px solid #e9e9e9;
+}
+
+.cb-grey{
+    background: #f9f9f9;
+}
+
+.cb-white{
+    background: white;
+}
 
 
+/*---------------------------------------------------------------------end css for news area*/
 
+
+/*---------------------------------------------------------------------css for bible area*/
+
+.game-bible-form-submit{
+    padding-left: 0;
+    background: none;
+    border: none;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #337ab7;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.game-bible-form-submit:hover{
+    transition:0.5s color ease;
+    color:#fa9b01 !important;
+    text-decoration: underline;
+}
+
+.igdb{
+    margin: 0 auto;
+    width:80%;
+    height: 300px;
+    padding: 10px;
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+}
+
+.small-info-area{
+    margin-top: 20px;
+}
+
+
+/*---------------------------------------------------------------------end css for bible area*/
 
 @media only screen and (max-width: 990px) {
     .sidebar-menu{position: static; width:100%}
@@ -480,9 +627,12 @@ a.nav-link:after{
 
 @media only screen and (max-width: 600px) {
     #logo {font-size: 20px;}
-    .parallax{width:100%;}
+    body{padding-bottom: 0px;}
+    .page-footer{position: relative; height: auto;}
+    .parallax{width:100%; background-attachment: scroll;}
     .sonic{background-image: url('/static/images/sonicsmall.png');}
     .streetfighter{background-image: url('/static/images/streetfightersmall.jpg');}
     .pacman{background-image: url('/static/images/Pacmansmall.jpg');}
+    .news-img-thumbnail{width: 60%;}
     .social-link{height: 40px; width: 40px; font-size: 30px}
 }

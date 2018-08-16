@@ -34,4 +34,7 @@ def game_detail(request):
         game['cover']['url']=game['cover']['url'].replace("t_thumb","t_cover_big")
     if 'first_release_date' in game:
         game['first_release_date'] = datetime.utcfromtimestamp(int(game['first_release_date'] / 1000)).strftime('%Y/%m/%d')
-    return render(request, "bible/game_detail.html", {'game':game})
+    if 'rating' in game:
+        game['rating'] = round(game['rating'])
+    form = IgdbSearchForm()
+    return render(request, "bible/game_detail.html", {'game':game, form:'form'})
