@@ -1,4 +1,6 @@
-from django.shortcuts import render
+# bible views
+
+from django.shortcuts import render, redirect
 import requests
 from igdb_api_python.igdb import igdb
 import os
@@ -8,6 +10,10 @@ from .forms import IgdbSearchForm
 
 # Create your views here.
 def get_games(request):
+    search_query = request.GET.get("query")
+    if search_query:
+        query = search_query
+        return redirect('search_results', query)
     form = IgdbSearchForm()
     r = igdb(os.environ.get("IGDB_API_KEY"))
     games=[]
@@ -25,7 +31,13 @@ def get_games(request):
     return render(request, "bible/search_bible.html", {'games':games, 'form':form})
     
 def game_detail(request):
+    search_query = request.GET.get("query")
+    if search_query:
+        query = search_query
+        return redirect('search_results', query)
+    
     game_id = int(request.GET.get("game_id"))
+    form = IgdbSearchForm()
     r = igdb(os.environ.get("IGDB_API_KEY"))
     result = r.games(game_id)
     for g in result.body:
@@ -36,5 +48,7 @@ def game_detail(request):
         game['first_release_date'] = datetime.utcfromtimestamp(int(game['first_release_date'] / 1000)).strftime('%Y/%m/%d')
     if 'rating' in game:
         game['rating'] = round(game['rating'])
-    form = IgdbSearchForm()
-    return render(request, "bible/game_detail.html", {'game':game, form:'form'})
+    if 'screenshots' in game:
+        for i in game['screenshots']:
+            i['url']=i['url'].replace("t_thumb","t_original")
+    return render(request, "bible/game_detail.html", {'game':game, 'form':form})

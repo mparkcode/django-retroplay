@@ -20,8 +20,11 @@
                                 <input type="hidden" name="game_id" value="{{ game.id }}"/>
                                 <input type="submit" value="Add To Cart" class="btn btn-info add-to-cart-btn"/>
                             </form>
+                            <form action="{% url 'get_games' %}">
+                                <input type="hidden" name="igdb_search" value="{{game.title}}"/>
+                                <input type="submit" value="Search in the Bible" class="btn btn-warning search-in-bible-btn"/>
+                            </form>
                         </div>
-                        
                         <div>
                             <div class="game-title">
                                 <h5>{{game.title}}</h5>
