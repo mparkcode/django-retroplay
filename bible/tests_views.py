@@ -9,10 +9,7 @@ class TestBibleViews(TestCase):
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "bible/search_bible.html")
         
-    def test_get_game_detail_page(self):
-        page = self.client.get("/bible/game_detail?game_id=427")
-        self.assertEqual(page.status_code, 200)
-        self.assertTemplateUsed(page, "bible/game_detail.html")
+    
     
     def test_get_game_detail_page_redirect_if_no_game_id(self):
         response = self.client.get("/bible/game_detail")
