@@ -19,6 +19,13 @@ class TestCheckoutModels(TestCase):
         self.assertEqual(order.street_address2, "2 street address")
         self.assertEqual(order.county, "some county")
         
+    def test_order_model_as_string(self):
+        current_date=timezone.now()
+        order = Order(full_name="John Doe", phone_number=123456789, country="Ireland", postcode="A12S34", town_or_city="Some town", street_address1="1 street_address", street_address2="2 street address", county="some county", date=current_date)
+        order.save()
+        self.assertEqual(str(order.id)+"-"+str(order.date)+"-John Doe", str(order))
+        
+    
     def test_order_line_item_model(self):
         current_date=timezone.now()
         order = Order(full_name="John Doe", phone_number=123456789, country="Ireland", postcode="A12S34", town_or_city="Some town", street_address1="1 street_address", street_address2="2 street address", county="some county", date=current_date)
@@ -34,4 +41,5 @@ class TestCheckoutModels(TestCase):
         self.assertEqual(orderlineitem.order, order)
         self.assertEqual(orderlineitem.game, game)
         self.assertEqual(orderlineitem.quantity, 1)
+        self.assertEqual("1 Example Game @ 4.0", str(orderlineitem))
         

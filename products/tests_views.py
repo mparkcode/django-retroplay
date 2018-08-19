@@ -28,3 +28,29 @@ class TestProductsViews(TestCase):
         page = self.client.get("/games/show_games/{0}".format(console.console_type))
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "products/show_games.html")
+        
+    def test_search_query_redirect_on_all_brands(self):
+        response = self.client.get("/games/all_brands?query=sonic")
+        self.assertRedirects(response, '/games/search_results/sonic', status_code=302, 
+        target_status_code=200, fetch_redirect_response=True)
+        
+    def test_search_query_redirect_on_show_console(self):
+        brand = Brand(name="Sega")
+        brand.save()
+        response = self.client.get("/games/{0}?query=sonic".format(brand.name))
+        self.assertRedirects(response, '/games/search_results/sonic', status_code=302, 
+        target_status_code=200, fetch_redirect_response=True)
+        
+    def test_search_query_redirect_on_show_games(self):
+        brand = Brand(name="Sega")
+        brand.save()
+        console = Console(console_type="mega-drive", brand=brand)
+        console.save()
+        response = self.client.get("/games/show_games/{0}?query=sonic".format(console.console_type))
+        self.assertRedirects(response, '/games/search_results/sonic', status_code=302, 
+        target_status_code=200, fetch_redirect_response=True)
+        
+    def test_search_query_redirect_on_search_results(self):
+        response = self.client.get("/games/search_results/sonic?query=sonic")
+        self.assertRedirects(response, '/games/search_results/sonic', status_code=302, 
+        target_status_code=200, fetch_redirect_response=True)

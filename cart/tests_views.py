@@ -1,5 +1,6 @@
 from django.test import TestCase
-
+from products.models import Brand, Console, Game
+from decimal import Decimal
 # Create your tests here.
 class TestCartViews(TestCase):
     
@@ -12,5 +13,4 @@ class TestCartViews(TestCase):
         response = self.client.get("/cart/add")
         self.assertEqual(response.status_code, 404)
         
- 
     

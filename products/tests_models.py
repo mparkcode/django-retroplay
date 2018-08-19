@@ -23,9 +23,16 @@ class TestProductModel(TestCase):
         console = Console(console_type="playstation", brand=brand)
         console.save()
         game = Game(title="Example Game", price=4.00, brand=brand, console=console)
-        game.save
+        game.save()
         self.assertEqual(game.title, "Example Game")    
         self.assertEqual(game.price, 4.00)
         self.assertEqual(game.brand, brand)
         self.assertEqual(game.console, console)
+        
+    def test_game_item_as_string(self):
+        game = Game(title="Example Game")
+        self.assertEqual("Example Game", str(game))
+    
+        
+        
     
