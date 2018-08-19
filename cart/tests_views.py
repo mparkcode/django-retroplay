@@ -1,7 +1,16 @@
 from django.test import TestCase
 
 # Create your tests here.
-class TestAccountsForms(TestCase):
+class TestCartViews(TestCase):
     
-    def test_is_this_thing_on(self):
-        self.assertEqual(1, 1)
+    def test_view_cart(self):
+        page = self.client.get("/cart/view")
+        self.assertEqual(page.status_code, 200)
+        self.assertTemplateUsed(page, "cart/cart.html")
+        
+    def test_get_404_on_add_to_cart_with_no_game_id(self):
+        response = self.client.get("/cart/add")
+        self.assertEqual(response.status_code, 404)
+        
+ 
+    

@@ -17,3 +17,4 @@ class TestBibleViews(TestCase):
         response = self.client.get("/bible/game_detail")
         self.assertRedirects(response, '/bible/', status_code=302, 
         target_status_code=200, fetch_redirect_response=True)
+        

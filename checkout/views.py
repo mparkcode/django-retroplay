@@ -56,6 +56,9 @@ def checkout(request):
     
 def confirmation(request):
     cart = request.session.pop('cart', {})
+    cart_items_and_total = get_cart_items_and_total(cart)
+    if cart_items_and_total['total'] == 0:
+        return redirect("index")
     context = get_cart_items_and_total(cart)
     billing_details = Order.objects.latest('id')
     context.update({'billing_details':billing_details})
