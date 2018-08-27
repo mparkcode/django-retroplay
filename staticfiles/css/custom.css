@@ -3,9 +3,8 @@ body{
     padding: 0;
     position: relative;
     padding-bottom: 340px;
-    background-image: url({{ STATIC_URL }}"images/14461.jpg");
-    background-size: cover;
 }
+
 
 /*---------------------------------------------------------------------Navbar*/
 
@@ -130,7 +129,7 @@ a.nav-link:after{
 }
 
 .welcome{
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Press Start 2P', 'Orbitron', sans-serif;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -310,7 +309,17 @@ a.nav-link:after{
   position: absolute;
   transition: .5s ease;
   opacity: 0;
-  top: 50%;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.game-container .search-in-bible-btn {
+  position: absolute;
+  transition: .5s ease;
+  opacity: 0;
+  top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -324,8 +333,12 @@ a.nav-link:after{
   opacity: 1;
 }
 
+.game-container:hover .search-in-bible-btn {
+  opacity: 1;
+}
+
 .add-to-cart-btn:hover{
-    color:#fa9b01;
+    color: white;
 }
 
 .pagination{
@@ -613,6 +626,20 @@ a.nav-link:after{
 
 .small-info-area{
     margin-top: 20px;
+}
+
+.igdb-thumbnail{
+    width: 100%;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.screenshot-area{
+    margin-top: 40px;
+}
+
+.igdb-screenshot{
+    padding: 5px;
 }
 
 
