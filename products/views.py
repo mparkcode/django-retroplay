@@ -27,7 +27,7 @@ def search_results(request, query):
     games = Game.objects.all()
     for i in query_list:
         games = games.filter(title__icontains=i)
-    paginator = Paginator(games, 15)
+    paginator = Paginator(games, 16)
     page = request.GET.get('page')
     games=paginator.get_page(page)
     return render(request, "products/search_results.html", {"games":games})
@@ -61,7 +61,7 @@ def show_games(request, console):
         return redirect('search_results', query)
     else:
         games=Game.objects.filter(console=console_type)
-        paginator = Paginator(games, 15)
+        paginator = Paginator(games, 16)
         page = request.GET.get('page')
         games=paginator.get_page(page)
         return render(request, "products/show_games.html", {"games":games, "console": console_type})

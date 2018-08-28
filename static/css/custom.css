@@ -270,6 +270,21 @@ body{
     margin-bottom: 40px;
 }
 
+.console-display{
+    background-image: linear-gradient(to top right, #ffffff, #C0C0C0);
+    height: 100%;
+    padding: 5px;
+    transition: all .3s ease-in-out;
+}
+
+.shrink{
+    transition: all .3s ease-in-out;
+}
+
+.shrink:hover{
+    transform: scale(0.9);
+}
+
 .game-group{
     /*border: 1px solid black;*/
     
