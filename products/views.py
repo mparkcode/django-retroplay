@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import Game, Console, Brand
+from news.models import Article
+from bible.forms import IgdbSearchForm
 import http.client
 import urllib.request
 import urllib.error
@@ -11,7 +13,9 @@ from django.core.paginator import Paginator
 def index(request):
     games = Game.objects.order_by('?')[:4]
     games2 = Game.objects.order_by('?')[:4]
-    return render(request, "products/index.html", {"games":games, "games2":games2})
+    article = Article.objects.order_by('?')[:1]
+    form = IgdbSearchForm()
+    return render(request, "products/index.html", {"games":games, "games2":games2, 'article': article, 'form': form})
     
     
 def search_results(request, query):
