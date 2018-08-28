@@ -156,6 +156,10 @@ body{
     width: 80%;
 }
 
+.extra-margin{
+    margin-top: 70px;
+}
+
 .controls
 {
     margin-top: 20px;
@@ -299,7 +303,7 @@ body{
 }
 
 .console-img{
-    width:80%;
+    width:100%;
     vertical-align: middle;
     height: auto;
     max-height: 150px;
@@ -697,6 +701,8 @@ body{
     .social-link{height: 40px; width: 40px; font-size: 30px}
     .c64-background{background-image: url('/static/images/c64 background4.jpg');}
     .c64-background2{background-image: url('/static/images/c64 background4.jpg');}
+    .heading-mobile{font-size: 1.5em;}
+    .extra-margin-mobile{margin-top: 90px;}
 }
 
 @keyframes movingangle {
