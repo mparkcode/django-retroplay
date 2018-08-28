@@ -42,6 +42,8 @@ def checkout(request):
                 return redirect("confirmation")
             else:
                 messages.error(request, "Unable to take payment")
+        else:
+            return redirect("index") 
     else:
         order_form = OrderForm()
         payment_form = MakePaymentForm()
@@ -58,7 +60,7 @@ def confirmation(request):
     cart = request.session.pop('cart', {})
     cart_items_and_total = get_cart_items_and_total(cart)
     if cart_items_and_total['total'] == 0:
-        return redirect("index")
+            return redirect("index")
     context = get_cart_items_and_total(cart)
     billing_details = Order.objects.latest('id')
     context.update({'billing_details':billing_details})

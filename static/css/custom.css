@@ -136,7 +136,8 @@ body{
 }
 
 .content-section{
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    font-size: 20px;
 }
 
 .fade-line-wtob { 
@@ -255,11 +256,13 @@ body{
 /*---------------------------------------------------------------------css for displaying brands, consoles & games*/
 
 
+
 .helper {
     display: inline-block;
     height: 100%;
     vertical-align: middle;
 }
+
 
 .brand-group{
     text-align: center;

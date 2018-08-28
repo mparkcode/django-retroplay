@@ -20,19 +20,19 @@
                     </div>
                     <div class="row">
                         <div class="row">
-                            <div class="col-md-9">
+                            <div class="col-xs-9">
                                 <h3>Featured Products</h3>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-xs-3">
                                 <!-- Controls -->
-                                <div class="controls pull-right hidden-xs">
+                                <div class="controls pull-right">
                                     <a class="left fa fa-chevron-left" href="#carousel-example"
                                         data-slide="prev"></a><a class="right fa fa-chevron-right" href="#carousel-example"
                                             data-slide="next"></a>
                                 </div>
                             </div>
                         </div>
-                        <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
+                        <div id="carousel-example" class="carousel slide" data-ride="carousel">
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner">
                                 <div class="item active">
@@ -125,6 +125,7 @@
                     <div class="content-section">
                         <p>Keep up with the latest news from the world of retro Gaming. Got some thoughts? Leave a comment!</p>
                     </div>
+                    <h3>Today's Featured Article</h3>
                     {% for article in article %}
                             <div class="row item-in-cart">
                                 <div class="col-xs-12 col-sm-4">
@@ -163,12 +164,11 @@
                     <div class="content-section">
                         <p>Want to know more about any of the games featured on our site?</p>
                         <p>Better yet, want to know more about any game ever? Consult the Games Bible!</p>
-                        <form action="{% url 'get_games' %}">
-                            {{form | as_bootstrap}}
-                            <input type="submit" class="btn btn-info" value="Search"/>
-                        </form>
                     </div>
-                    <p><a href="#" class="nav-link">Click here to go to the Gaming Lounge</a></p>
+                    <form action="{% url 'get_games' %}">
+                        {{form | as_bootstrap}}
+                        <input type="submit" class="btn btn-info" value="Search"/>
+                    </form>
                 </div>
                 <div class="col-md-4 col-sm-12">
                     <div class="sprite-img">
