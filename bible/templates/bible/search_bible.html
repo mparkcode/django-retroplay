@@ -13,34 +13,39 @@
                 <div class="fade-line-wtob"></div>
                 <div class="row">
                     <div class="col-xs-12">
+                        {% if not games %}
+                            <p>Welcome to the games bible</p>
+                        {% endif %}
                         <form action="{% url 'get_games' %}">
                             {{form | as_bootstrap}}
                             <input type="submit" class="btn btn-info" value="Search"/>
                         </form>
-                        {% for game in games %}
-                            <div class="row item-in-cart">
-                                <div class="col-xs-12 col-sm-4">
-                                    <div class="news-img-thumbnail-area">
-                                        {% if game.cover %}
-                                            <img class="news-img-thumbnail" src="https:{{game.cover.url}}"></img>
-                                        {% else %}
-                                            <img class="news-img-thumbnail" src="{{MEDIA_URL}}images/game-controller-icon.png"></img>
-                                        {% endif %}
+                        {% if games %}
+                            {% for game in games %}
+                                <div class="row item-in-cart">
+                                    <div class="col-xs-12 col-sm-4">
+                                        <div class="news-img-thumbnail-area">
+                                            {% if game.cover %}
+                                                <img class="news-img-thumbnail" src="https:{{game.cover.url}}"></img>
+                                            {% else %}
+                                                <img class="news-img-thumbnail" src="{{MEDIA_URL}}images/game-controller-icon.png"></img>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-8">
+                                        <div class="news-headline-area">
+                                            <form action="{% url 'game_detail' %}">
+                                                <input type="hidden" name="game_id" value={{game.id}}>
+                                                <input class="game-bible-form-submit" type="submit" value="{{game.name}}">
+                                            </form>
+                                        </div>
+                                        <div>
+                                            <p><small><strong>Release date: </strong></small>{{game.first_release_date}}</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-xs-12 col-sm-8">
-                                    <div class="news-headline-area">
-                                        <form action="{% url 'game_detail' %}">
-                                            <input type="hidden" name="game_id" value={{game.id}}>
-                                            <input class="game-bible-form-submit" type="submit" value="{{game.name}}">
-                                        </form>
-                                    </div>
-                                    <div>
-                                        <p><small><strong>Release date: </strong></small>{{game.first_release_date}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        {% endfor %}
+                            {% endfor %}
+                        {% endif %}
                     </div>
                 </div>
             </div>

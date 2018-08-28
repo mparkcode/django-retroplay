@@ -27,6 +27,7 @@ from cart import urls as cart_urls
 from checkout import urls as checkout_urls
 from news import urls as news_urls
 from bible import urls as bible_urls
+from info import urls as info_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -37,5 +38,6 @@ urlpatterns = [
     path('checkout/', include(checkout_urls)),
     path('news/', include(news_urls)),
     path('bible/', include(bible_urls)),
+    path('info/', include(info_urls)),
     path('media/<path:path>', serve, {'document_root': settings.MEDIA_ROOT})
 ]

@@ -103,18 +103,17 @@
             <div class="row">
                 <div class="col-md-4">
                     <ul class="footer-links">
-                        <li><a href="#" class="footer-link">Home</a></li>
-                        <li><a href="#" class="footer-link">Contact</a></li>
-                        <li><a href="#" class="footer-link">Deliveries & Returns Info</a></li>
-                        <li><a href="#" class="footer-link">FAQ</a></li>
+                        <li><a href="{% url 'index' %}" class="footer-link">Home</a></li>
+                        <li><a href="{% url 'contact' %}" class="footer-link">Contact</a></li>
+                        <li><a href="{% url 'shipping' %}" class="footer-link">Deliveries & Returns Info</a></li>
+                        <li><a href="{% url 'faq' %}" class="footer-link">FAQ</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
                     <ul class="footer-links">
-                        <li><a href="#" class="footer-link">Games</a></li>
-                        <li><a href="#" class="footer-link">News</a></li>
-                        <li><a href="#" class="footer-link">Gaming Louge</a></li>
-                        <li><a href="#" class="footer-link">Game Encyclopaedia</a></li>
+                        <li><a href="{% url 'all_brands' %}" class="footer-link">Games</a></li>
+                        <li><a href="{% url 'all_news' %}" class="footer-link">News</a></li>
+                        <li><a href="{% url 'get_games' %}" class="footer-link">Games Bible</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
