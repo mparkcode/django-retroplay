@@ -61,36 +61,14 @@ body{
   display: block;
 }
 
-a,a:visited,a:hover,a:active{
+.navbar a,a:visited,a:hover,a:active{
   transition:0.5s color ease;
 }
 
-a.after:after{
-  content: "";
-  transition:0.5s all ease;
-  -webkit-backface-visibility:hidden;
-          backface-visibility:hidden;
-  position:absolute;
-  bottom:-0.25em;
-  height:5px;
-  height:0.35rem;
-  width:0;
-  background:#fa9b01;;
-}
-
-a.after:hover:after{
-  width:100%;
-}
-
-a:hover{
+.navbar a:hover{
 	color:#fa9b01 !important;
 }
 
-a.nav-link:after{
-  left:50%;
-  -webkit-transform:translateX(-50%);
-          transform:translateX(-50%);
-}
 
 /*---------------------------------------------------------------------End Navbar*/
 

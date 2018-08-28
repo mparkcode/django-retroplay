@@ -11,6 +11,7 @@
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
     <link href="{% static 'css/lightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/hover.css' %}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Libre+Barcode+39+Extended+Text|Orbitron" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
@@ -45,29 +46,29 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class="dropdown">
-                            <a href="{% url 'all_brands' %}" class="dropdown-toggle nav-link after" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Games shop<span class="caret"></span></a>
+                            <a href="{% url 'all_brands' %}" id="game-shop" class="dropdown-toggle nav-link hvr-underline-from-center" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Games shop<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 {% for brand in all_brands %}
                                     <li><a href="{% url 'show_consoles' brand=brand.name %}">{{brand.name}}</a></li>
                                 {% endfor%}
                             </ul>
                         </li>
-                        <li><a class="nav-link after" href="{% url 'all_news' %}">News</a></li>
-                        <li><a class="nav-link after" href="{% url 'get_games' %}">Game bible</a></li>
+                        <li><a id="news" class="nav-link hvr-underline-from-center" href="{% url 'all_news' %}">News</a></li>
+                        <li><a id="game-bible" class="nav-link hvr-underline-from-center" href="{% url 'get_games' %}">Game bible</a></li>
                     </ul>
                     
                     <ul class="nav navbar-nav navbar-right">
                         {% if user.is_authenticated %}
-                            <li><a class="nav-link after" href="{% url 'profile' %}">Profile</a></li>
-                            <li><a class="nav-link after" href="{% url 'logout' %}">Logout</a></li>
+                            <li><a id="profile" class="nav-link hvr-underline-from-center" href="{% url 'profile' %}">Profile</a></li>
+                            <li><a id="logout" class="nav-link hvr-underline-from-center" href="{% url 'logout' %}">Logout</a></li>
                         {% else %}
-                            <li><a class="nav-link after" href="{% url 'login' %}">Login</a></li>
-                            <li><a class="nav-link after" href="{% url 'register' %}">Register</a></li>
+                            <li><a id="profile" class="nav-link hvr-underline-from-center" href="{% url 'login' %}">Login</a></li>
+                            <li><a id="logout" class="nav-link hvr-underline-from-center" href="{% url 'register' %}">Register</a></li>
                         {% endif %}
                         {% if request.get_full_path == checkout %}
-                            <li><a class="nav-link after" href="{% url 'view_cart' %}">Cart 0</a></li>
+                            <li><a class="nav-link hvr-underline-from-center" href="{% url 'view_cart' %}">Cart 0</a></li>
                         {% else %}
-                            <li><a class="nav-link after" href="{% url 'view_cart' %}">Cart {{number_of_items}}</a></li>
+                            <li><a id="cart" class="nav-link hvr-underline-from-center" href="{% url 'view_cart' %}">Cart {{number_of_items}}</a></li>
                         {% endif %}
                             
                         
