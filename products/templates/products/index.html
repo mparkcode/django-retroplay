@@ -5,66 +5,178 @@
 <section class="pacman parallax">
     <i class="fas fa-angle-down moving-angle"></i>
 </section>
-
-<div class="container">
-    <section class="content">
-        <div class="row">
-            <div class="col-md-8 col-sm-12">
-                <div class="welcome">
-                    <h1>Welcome to Retro Play</h1>
+<div class="c64-background">
+    <div class="container">
+        <section class="content">
+            <div class="row">
+                <div class="col-md-8 col-sm-12">
+                    <div class="welcome">
+                        <h1>Welcome to Retro Play</h1>
+                    </div>
+                    <div class="fade-line-wtob"></div>
+                    <div class="content-section">
+                        <p>We have a large selection of games for all your favorite retro consoles in stock.</p>
+                    </div>
+                    
+                    
+                    
+                    
+                    <div class="row">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <h3>Featured Products</h3>
+                            </div>
+                            <div class="col-md-3">
+                                <!-- Controls -->
+                                <div class="controls pull-right hidden-xs">
+                                    <a class="left fa fa-chevron-left" href="#carousel-example"
+                                        data-slide="prev"></a><a class="right fa fa-chevron-right" href="#carousel-example"
+                                            data-slide="next"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <div class="row">
+                                        {% for game in games %}
+                                        
+                                        
+                                        
+                                        
+                                            <div class="col-md-3 col-xs-6 brand-group game-group">
+                                                <div class="game-container">
+                                                    <img class="console-img game-img" src="{{MEDIA_URL}}{{game.image}}"></img>
+                                                    <form action="{% url 'add_to_cart' %}" method="POST">
+                                                        {% csrf_token %}
+                                                        <input type="hidden" name="game_id" value="{{ game.id }}"/>
+                                                        <input type="submit" value="Add To Cart" class="btn btn-info add-to-cart-btn"/>
+                                                    </form>
+                                                    <form action="{% url 'get_games' %}">
+                                                        <input type="hidden" name="igdb_search" value="{{game.title}}"/>
+                                                        <input type="submit" value="Search in the Bible" class="btn btn-warning search-in-bible-btn"/>
+                                                    </form>
+                                                </div>
+                                                <div>
+                                                    <div class="game-title">
+                                                        <h5>{{game.title}}</h5>
+                                                    </div>    
+                                                    <p>{{game.brand}} {{ game.console }}</p>
+                                                    <p>€ {{game.price}}</p>
+                                                    
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                            
+                                            
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="row">
+                                        {% for game in games2%}
+                                            <div class="col-md-3 col-xs-6 brand-group game-group">
+                                                <div class="game-container">
+                                                    <img class="console-img game-img" src="{{MEDIA_URL}}{{game.image}}"></img>
+                                                    <form action="{% url 'add_to_cart' %}" method="POST">
+                                                        {% csrf_token %}
+                                                        <input type="hidden" name="game_id" value="{{ game.id }}"/>
+                                                        <input type="submit" value="Add To Cart" class="btn btn-info add-to-cart-btn"/>
+                                                    </form>
+                                                    <form action="{% url 'get_games' %}">
+                                                        <input type="hidden" name="igdb_search" value="{{game.title}}"/>
+                                                        <input type="submit" value="Search in the Bible" class="btn btn-warning search-in-bible-btn"/>
+                                                    </form>
+                                                </div>
+                                                <div>
+                                                    <div class="game-title">
+                                                        <h5>{{game.title}}</h5>
+                                                    </div>    
+                                                    <p>{{game.brand}} {{ game.console }}</p>
+                                                    <p>€ {{game.price}}</p>
+                                                    
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <p><a href="{% url 'all_brands' %}" class="nav-link">Click here to view our extensive collection of games</a></p>
                 </div>
-                <div class="fade-line-wtob"></div>
-                <div class="content-section">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                <div class="col-md-4 col-sm-12  sprite-img">
+                    <img src="{% static 'images/mariosprite.png' %}" class="sprite"></img>
                 </div>
-                <p><a href="#" class="nav-link">Click here to view our extensive collection of games</a></p>
             </div>
-            <div class="col-md-4 col-sm-12  sprite-img">
-                <img src="{% static 'images/mariosprite.png' %}" class="sprite"></img>
-            </div>
-        </div>
-    </section>
+        </section>
+    </div>
 </div>
 
 <section class="streetfighter parallax"></section>
-<div class="container">
-    <section class="content">
-        <div class="row">
-            <div class="col-md-4 col-sm-12  sprite-img">
-                <img src="{% static 'images/SpaceInvadersSprite.png' %}" class="sprite"></img>
-            </div>
-            <div class="col-md-8 col-sm-12">
-                <div class="welcome">
-                    <h1>Read the Latest News</h1>
+
+<div class="c64-background2">
+    <div class="container">
+        <section class="content">
+            <div class="row">
+                <div class="col-md-4 col-sm-12  sprite-img">
+                    <img src="{% static 'images/SpaceInvadersSprite.png' %}" class="sprite"></img>
                 </div>
-                <div class="fade-line-wtob"></div>
-                <div class="content-section">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                <div class="col-md-8 col-sm-12">
+                    <div class="welcome">
+                        <h1>Read the Latest News</h1>
+                    </div>
+                    <div class="fade-line-wtob"></div>
+                    <div class="content-section">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    </div>
+                    <p><a href="#" class="nav-link">Click here to go to our blog</a></p>
                 </div>
-                <p><a href="#" class="nav-link">Click here to go to our blog</a></p>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 </div>
 
 <section class="sonic parallax"></section>
-<div class="container">
-    <section class="content">
-        <div class="row">
-            <div class="col-md-8 col-sm-12">
-                <div class="welcome">
-                    <h1>Wanna Game Straight Away?</h1>
+
+<div class="c64-background3">
+    <div class="container">
+        <section class="content">
+            <div class="row">
+                <div class="col-md-8 col-sm-12">
+                    <div class="welcome">
+                        <h1>Wanna Game Straight Away?</h1>
+                    </div>
+                    <div class="fade-line-wtob"></div>
+                    <div class="content-section">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    </div>
+                    <p><a href="#" class="nav-link">Click here to go to the Gaming Lounge</a></p>
                 </div>
-                <div class="fade-line-wtob"></div>
-                <div class="content-section">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                <div class="col-md-4 col-sm-12 sprite-img">
+                    <img src="{% static 'images/zeldasprite.png' %}" class="sprite"></img>
                 </div>
-                <p><a href="#" class="nav-link">Click here to go to the Gaming Lounge</a></p>
             </div>
-            <div class="col-md-4 col-sm-12 sprite-img">
-                <img src="{% static 'images/zeldasprite.png' %}" class="sprite"></img>
-            </div>
-        </div>
-    </section>
+        </section>
+    </div>
 </div>
 {% endblock %}

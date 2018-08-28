@@ -9,7 +9,9 @@ from django.core.paginator import Paginator
 
 # Create your views here.
 def index(request):
-    return render(request, "products/index.html")
+    games = Game.objects.order_by('?')[:4]
+    games2 = Game.objects.order_by('?')[:4]
+    return render(request, "products/index.html", {"games":games, "games2":games2})
     
     
 def search_results(request, query):

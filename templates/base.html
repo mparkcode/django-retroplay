@@ -68,7 +68,7 @@
                         {% if request.get_full_path == checkout %}
                             <li><a class="nav-link hvr-underline-from-center" href="{% url 'view_cart' %}">Cart 0</a></li>
                         {% else %}
-                            <li><a id="cart" class="nav-link hvr-underline-from-center" href="{% url 'view_cart' %}">Cart {{number_of_items}}</a></li>
+                            <li><a id="cart" class="nav-link hvr-underline-from-center" href="{% url 'view_cart' %}"><i class="fas fa-shopping-cart"></i> {{number_of_items}}</a></li>
                         {% endif %}
                             
                         
