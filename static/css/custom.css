@@ -98,6 +98,16 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    position: relative;
+}
+
+.moving-angle{
+    color: white;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    font-size:70px;
+    animation: movingangle 3s linear infinite;
 }
 
 .content{
@@ -640,4 +650,10 @@ body{
     .pacman{background-image: url('/static/images/Pacmansmall.jpg');}
     .news-img-thumbnail{width: 60%;}
     .social-link{height: 40px; width: 40px; font-size: 30px}
+}
+
+@keyframes movingangle {
+    0% {top: 80%;}
+    50% {top: 83%;}
+    100% {top: 80%;}
 }
