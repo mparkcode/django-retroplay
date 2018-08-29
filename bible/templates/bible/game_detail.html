@@ -20,7 +20,7 @@
                                     {% if game.cover %}
                                         <img class="igdb-img" src="https:{{game.cover.url}}"></img>
                                     {% else %}
-                                        <img class="igdb-img" src="{{MEDIA_URL}}images/game-controller-icon.png"></img>
+                                        <img class="igdb-img" src="{{MEDIA_URL}}images/no-image.jpg"></img>
                                     {% endif %}
                                 </div>
                                 {% if game.first_release_date %}
@@ -33,26 +33,34 @@
                                         <p>Rating</p>
                                         {% if game.rating <= 33 %}
                                             <div class="progress">
-                                                <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar"
+                                                <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar"
                                                 aria-valuenow="{{game.rating}}" aria-valuemin="0" aria-valuemax="100" style="width:{{game.rating}}%">
                                                     {{game.rating}}%
                                                 </div>
                                             </div>
                                         {% elif game.rating > 33 and game.rating <= 66 %}
                                             <div class="progress">
-                                                <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar"
+                                                <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar"
                                                 aria-valuenow="{{game.rating}}" aria-valuemin="0" aria-valuemax="100" style="width:{{game.rating}}%">
                                                     {{game.rating}}%
                                                 </div>
                                             </div>
                                         {% else %}
                                             <div class="progress">
-                                                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
+                                                <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
                                                 aria-valuenow="{{game.rating}}" aria-valuemin="0" aria-valuemax="100" style="width:{{game.rating}}%">
                                                     {{game.rating}}%
                                                 </div>
                                             </div>
                                         {% endif %}
+                                    </div>
+                                {% else %}
+                                    <div class="small-info-area">
+                                        <div class="progress">
+                                            <div id="no-rating-bar" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                                                No Rating Available
+                                            </div>
+                                        </div>
                                     </div>
                                 {% endif %}
                                 <div class="small-info-area">
@@ -66,10 +74,12 @@
                                         <p><small><strong>Screenshots</strong></small></p>
                                         <div class="row">
                                             {% for screenshot in game.screenshots %}
-                                                <div class="col-xs-12 col-sm-3 igdb-screenshot">
-                                                    <a href="http:{{screenshot.url}}" data-lightbox="img-gallery">
-                                                        <img class="igdb-thumbnail" src="http:{{screenshot.url}}"></img>
-                                                    </a>
+                                                <div class="col-xs-6 col-sm-4">
+                                                    <div class="igdb-screenshot">
+                                                        <a href="http:{{screenshot.url}}" data-lightbox="img-gallery">
+                                                            <img class="igdb-thumbnail" src="http:{{screenshot.url}}"></img>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             {% endfor %}
                                         </div>

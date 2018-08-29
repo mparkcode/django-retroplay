@@ -61,44 +61,20 @@ body{
   display: block;
 }
 
-a,a:visited,a:hover,a:active{
+.navbar a,a:visited,a:hover,a:active{
   transition:0.5s color ease;
 }
 
-a.after:after{
-  content: "";
-  transition:0.5s all ease;
-  -webkit-backface-visibility:hidden;
-          backface-visibility:hidden;
-  position:absolute;
-  bottom:-0.25em;
-  height:5px;
-  height:0.35rem;
-  width:0;
-  background:#fa9b01;;
-}
-
-a.after:hover:after{
-  width:100%;
-}
-
-a:hover{
+.navbar a:hover{
 	color:#fa9b01 !important;
 }
 
-a.nav-link:after{
-  left:50%;
-  -webkit-transform:translateX(-50%);
-          transform:translateX(-50%);
-}
 
 /*---------------------------------------------------------------------End Navbar*/
 
 /*---------------------------------------------------------------------Home Page*/
 
-.sprite{
-    width: 100%;
-}
+
 
 .pacman{
     background-image: url('/static/images/pacman.jpg');
@@ -120,12 +96,37 @@ a.nav-link:after{
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    position: relative;
+}
+
+.moving-angle{
+    color: white;
+    position: absolute;
+    top: 80%;
+    left: 45%;
+    font-size:70px;
+    animation: movingangle 3s linear infinite;
 }
 
 .content{
     margin-top: 80px;
     margin-bottom: 80px;
     padding-top: 40px;
+}
+
+.c64-background{
+    background-image: url('/static/images/c64 background5.jpg');
+    background-size: cover;
+}
+
+.c64-background2{
+    background-image: url('/static/images/c64 background3.jpg');
+    background-size: cover;
+}
+
+.c64-background3{
+    background-image: url('/static/images/c64 background4.jpg');
+    background-size: cover;
 }
 
 .welcome{
@@ -135,7 +136,8 @@ a.nav-link:after{
 }
 
 .content-section{
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    font-size: 20px;
 }
 
 .fade-line-wtob { 
@@ -146,7 +148,20 @@ a.nav-link:after{
 }
 
 .sprite-img{
+    width: 100%;
     text-align: center;
+}
+
+.sprite{
+    width: 80%;
+}
+
+.extra-margin{
+    margin-top: 70px;
+}
+
+.mb-20{
+    margin-bottom: 40px;
 }
 
 /*---------------------------------------------------------------------End Home Page*/
@@ -159,7 +174,6 @@ a.nav-link:after{
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 236px;
     background-color: #000;
     color: white;
     text-align: center;
@@ -246,16 +260,27 @@ a.nav-link:after{
     vertical-align: middle;
 }
 
+
 .brand-group{
     text-align: center;
     height: 230px;
     margin-bottom: 40px;
 }
 
-.game-group{
-    /*border: 1px solid black;*/
-    
+.console-display{
+    height: 100%;
+    padding: 5px;
+    transition: all .3s ease-in-out;
 }
+
+.shrink{
+    transition: all .3s ease-in-out;
+}
+
+.shrink:hover{
+    transform: scale(0.9);
+}
+
 
 .brand-img{
     width:90%;
@@ -266,7 +291,7 @@ a.nav-link:after{
 }
 
 .console-img{
-    width:80%;
+    width:100%;
     vertical-align: middle;
     height: auto;
     max-height: 150px;
@@ -290,57 +315,6 @@ a.nav-link:after{
 }
 
 
-
-.product-img{
-    width:100%;
-    height: 180px;
-    
-}
-
-.game-container {
-  position: relative;
-}
-
-.game-img{
-    transition: .5s ease;
-}
-
-.game-container .add-to-cart-btn {
-  position: absolute;
-  transition: .5s ease;
-  opacity: 0;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-}
-
-.game-container .search-in-bible-btn {
-  position: absolute;
-  transition: .5s ease;
-  opacity: 0;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-}
-
-.game-container:hover img {
-  opacity: 0.3;
-}
-
-.game-container:hover .add-to-cart-btn {
-  opacity: 1;
-}
-
-.game-container:hover .search-in-bible-btn {
-  opacity: 1;
-}
-
-.add-to-cart-btn:hover{
-    color: white;
-}
-
 .pagination{
     width: 100%;
     text-align: center;
@@ -359,6 +333,85 @@ a.nav-link:after{
     color: #333;
     font-size: 20px;
 }
+
+
+.game-box{
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: #efefef;
+    transition: all .3s ease-in-out;
+}
+
+.game-box:hover{
+    transform: scale(1.05);
+}
+
+
+
+.img-container{
+    width: 100%;
+    background-color: #000;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.info-container{
+    height: 110px;
+    padding-top: 5px;
+}
+
+
+.game-image{
+    width:100%;
+    height: 10em;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.game-box img{
+    transition: all .3s ease-in-out;
+}
+
+.game-box:hover img{
+    opacity: 0.5;
+}
+
+.game-box .add-to-cart-btn {
+  position: absolute;
+  transition: .5s ease;
+  opacity: 0;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.game-box .search-in-bible-btn {
+  position: absolute;
+  transition: .5s ease;
+  opacity: 0;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+
+.game-box:hover .add-to-cart-btn {
+  opacity: 1;
+}
+
+.game-box:hover .search-in-bible-btn {
+  opacity: 1;
+}
+
+
+
+
+
+
+
 
 /*---------------------------------------------------------------------end css for displaying brands, consoles & games*/
 
@@ -645,21 +698,40 @@ a.nav-link:after{
 
 /*---------------------------------------------------------------------end css for bible area*/
 
+@media only screen and (max-width: 1500px){
+    .background{opacity: 0.5;}
+}
+
 @media only screen and (max-width: 990px) {
     .sidebar-menu{position: static; width:100%}
     .spacer{height: 25px;}
     .sprite {width: 40%;}
-    
 }
 
 @media only screen and (max-width: 600px) {
     #logo {font-size: 20px;}
     body{padding-bottom: 0px;}
     .page-footer{position: relative; height: auto;}
-    .parallax{width:100%; background-attachment: scroll;}
+    .parallax{background-attachment: scroll;}
     .sonic{background-image: url('/static/images/sonicsmall.png');}
     .streetfighter{background-image: url('/static/images/streetfightersmall.jpg');}
     .pacman{background-image: url('/static/images/Pacmansmall.jpg');}
     .news-img-thumbnail{width: 60%;}
     .social-link{height: 40px; width: 40px; font-size: 30px}
+    .c64-background{background-image: url('/static/images/c64 background4.jpg');}
+    .c64-background2{background-image: url('/static/images/c64 background4.jpg');}
+    .heading-mobile{font-size: 1.5em;}
+    .extra-margin-mobile{margin-top: 90px;}
+    .background{display: none;}
+    .footer-links{margin-bottom:0;}
 }
+
+@keyframes movingangle {
+    0% {top: 80%;}
+    50% {top: 83%;}
+    100% {top: 80%;}
+}
+
+
+
+

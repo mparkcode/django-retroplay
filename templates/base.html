@@ -51,15 +51,15 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class="dropdown">
-                            <a href="{% url 'all_brands' %}" id="game-shop" class="dropdown-toggle nav-link hvr-underline-from-center" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Games shop<span class="caret"></span></a>
+                            <a href="{% url 'all_brands' %}" id="game-shop" class="dropdown-toggle nav-link hvr-underline-from-center" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Games Shop<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 {% for brand in all_brands %}
-                                    <li><a href="{% url 'show_consoles' brand=brand.name %}">{{brand.name}}</a></li>
+                                    <li><a href="{% url 'show_consoles' brand=brand.name %}">{{brand.name|title}}</a></li>
                                 {% endfor%}
                             </ul>
                         </li>
-                        <li><a id="news" class="nav-link hvr-underline-from-center" href="{% url 'all_news' %}"><p>News</p></a></li>
-                        <li><a id="game-bible" class="nav-link hvr-underline-from-center" href="{% url 'get_games' %}">Game bible</a></li>
+                        <li><a id="news" class="nav-link hvr-underline-from-center" href="{% url 'all_news' %}">News</a></li>
+                        <li><a id="game-bible" class="nav-link hvr-underline-from-center" href="{% url 'get_games' %}">Game Bible</a></li>
                     </ul>
                     
                     <ul class="nav navbar-nav navbar-right">
@@ -119,9 +119,9 @@
                 </div>
                 <div class="col-sm-4">
                     <ul class="footer-links">
-                        <li><a href="{% url 'all_brands' %}" class="footer-link">Games</a></li>
+                        <li><a href="{% url 'all_brands' %}" class="footer-link">Games Shop</a></li>
                         <li><a href="{% url 'all_news' %}" class="footer-link">News</a></li>
-                        <li><a href="{% url 'get_games' %}" class="footer-link">Games Bible</a></li>
+                        <li><a href="{% url 'get_games' %}" class="footer-link">Game Bible</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-4">
