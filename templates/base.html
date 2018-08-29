@@ -70,6 +70,14 @@
                             <li><a id="profile" class="nav-link hvr-underline-from-center" href="{% url 'login' %}">Login</a></li>
                             <li><a id="logout" class="nav-link hvr-underline-from-center" href="{% url 'register' %}">Register</a></li>
                         {% endif %}
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle nav-link hvr-underline-from-center" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Info<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'faq' %}">FAQ</a></li>
+                                <li><a href="{% url 'shipping' %}">Shipping</a></li>
+                                <li><a href="{% url 'contact' %}">Contact</a></li>
+                            </ul>
+                        </li>
                         {% if request.get_full_path == checkout %}
                             <li><a class="nav-link hvr-underline-from-center" href="{% url 'view_cart' %}">Cart 0</a></li>
                         {% else %}

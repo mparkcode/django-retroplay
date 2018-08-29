@@ -18,7 +18,9 @@
                     </div>
                     {% include 'products/pagination.html' %}
                 {% else %}
-                    <p>No games match your search</p>
+                    <div class="content-section">
+                        <p>No products match your search. Please try again.</p>
+                    </div>
                 {% endif %}
             </div>
             <div class="col-md-4 col-sm-12">

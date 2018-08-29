@@ -44,7 +44,7 @@
                         </form>
                     </div>
                 {% else %}
-                    <h3>Login to comment</h3>
+                    <h3><a href="{% url 'login' %}">Login</a> or <a href="{% url 'register' %}">Register</a> to comment</h3>
                 {% endif %}
             </div>
             <div class="col-md-4 col-sm-12">

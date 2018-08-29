@@ -14,7 +14,10 @@
                 <div class="row">
                     <div class="col-xs-12">
                         {% if not games %}
-                            <p>Welcome to the games bible</p>
+                            <div class="content-section">
+                                <p>Welcome to the Game Bible, here you can look up information about any of the games we have in stock. You can also look up information about any game ever!</p>
+                                <p>Simply enter a game title in the search field below.</p>
+                            </div>
                         {% endif %}
                         <form action="{% url 'get_games' %}">
                             {{form | as_bootstrap}}
