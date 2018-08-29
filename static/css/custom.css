@@ -160,13 +160,8 @@ body{
     margin-top: 70px;
 }
 
-.controls
-{
-    margin-top: 20px;
-}
-[data-slide="prev"]
-{
-    margin-right: 10px;
+.mb-20{
+    margin-bottom: 40px;
 }
 
 /*---------------------------------------------------------------------End Home Page*/
@@ -289,10 +284,6 @@ body{
     transform: scale(0.9);
 }
 
-.game-group{
-    /*border: 1px solid black;*/
-    
-}
 
 .brand-img{
     width:90%;
@@ -396,6 +387,80 @@ body{
     color: #333;
     font-size: 20px;
 }
+
+
+.game-box{
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 10px;
+    background: #efefef;
+    transition: all .3s ease-in-out;
+}
+
+.game-box:hover{
+    transform: scale(1.05);
+}
+
+
+
+.img-container{
+    width: 100%;
+    background-color: #000;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+
+.game-image{
+    width:100%;
+    height: 10em;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.game-box img{
+    transition: all .3s ease-in-out;
+}
+
+.game-box:hover img{
+    opacity: 0.5;
+}
+
+.game-box .add-to-cart-btn {
+  position: absolute;
+  transition: .5s ease;
+  opacity: 0;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.game-box .search-in-bible-btn {
+  position: absolute;
+  transition: .5s ease;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+
+.game-box:hover .add-to-cart-btn {
+  opacity: 1;
+}
+
+.game-box:hover .search-in-bible-btn {
+  opacity: 1;
+}
+
+
+
+
+
+
+
 
 /*---------------------------------------------------------------------end css for displaying brands, consoles & games*/
 

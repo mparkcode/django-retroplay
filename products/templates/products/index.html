@@ -18,40 +18,10 @@
                     <div class="content-section">
                         <p>We have a large selection of games for all your favorite retro consoles in stock.</p>
                     </div>
-                    <div class="row">
-                        <div class="row">
-                            <div class="col-xs-8">
-                                <h3>Featured Products</h3>
-                            </div>
-                            <div class="col-xs-4">
-                                <!-- Controls -->
-                                <div class="controls pull-right">
-                                    <a class="left fa fa-chevron-left" href="#carousel-example"
-                                        data-slide="prev"></a><a class="right fa fa-chevron-right" href="#carousel-example"
-                                            data-slide="next"></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="carousel-example" class="carousel slide" data-ride="carousel">
-                            <!-- Wrapper for slides -->
-                            <div class="carousel-inner">
-                                <div class="item active">
-                                    <div class="row">
-                                        {% for game in games %}
-                                            {% include 'products/product_display.html' %}
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="row">
-                                        {% for game in games2%}
-                                            {% include 'products/product_display.html' %}
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <h3 class="mb-20">Featured Products</h3>
+                    {% for game in games %}
+                        {% include 'products/product_display.html' %}
+                    {% endfor %}
                     <p><a href="{% url 'all_brands' %}" class="nav-link">Click here to view our extensive collection of games</a></p>
                 </div>
                 <div class="col-md-4 col-sm-12">
