@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Article, Comment
 from django.core.paginator import Paginator
 from .forms import CommentForm
+from .models import Comment
 
 # Create your views here.
 def all_news(request):
@@ -19,16 +20,36 @@ def view_article(request, pk):
     if request.method=="POST":
         form = CommentForm(request.POST)
         if form.is_valid():
+            comment_id = request.POST['comment_id']
+            if comment_id:
+                comment=Comment.objects.filter(id=comment_id).first()
+                comment.content = form.cleaned_data.get('content')
+                comment.save()
+                article = Article.objects.get(pk=pk)
+                return redirect('view_article', article.id)
             comment=form.save(commit=False)
             comment.author=request.user
             article = Article.objects.get(pk=pk)
             comment.article=article
             comment.save()
             return redirect('view_article', article.id)
+        comment_id=request.POST['comment_id']
+        comment=Comment.objects.filter(id=comment_id)
+        comment.delete()
+        article = Article.objects.get(pk=pk)
+        return redirect('view_article', article.id)
     search_query = request.GET.get("query")
     if search_query:
         query = search_query
         return redirect('search_results', query)
+    comment_id = request.GET.get("comment_id")
+    if comment_id:
+        comment=Comment.objects.filter(id=comment_id).first()
+        print(comment)
+        article = Article.objects.get(pk=pk)
+        comments = Comment.objects.filter(article = article)
+        form = CommentForm(initial={'content': comment.content})
+        return render(request, "news/view_article.html", {'article':article, 'comments':comments, 'form':form, 'comment_id':comment_id})
     article = Article.objects.get(pk=pk)
     comments = Comment.objects.filter(article = article)
     form = CommentForm()

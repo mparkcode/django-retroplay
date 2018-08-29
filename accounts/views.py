@@ -3,6 +3,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.contrib.auth import authenticate
+from django.contrib.auth.models import User
 from .forms import UserLoginForm, UserRegistrationForm
 
 
@@ -22,7 +23,8 @@ def login(request):
                 login_form.add_error(None, "Your username or password are incorrect")
     else:
         login_form = UserLoginForm()
-
+    if request.user.is_authenticated:
+        return redirect('index')
     return render(request, 'accounts/login.html', {'form': login_form})
 
     
@@ -44,8 +46,8 @@ def register(request):
                 registration_form.add_error(None, "Can't log in now, try later.")
     else:
         registration_form = UserRegistrationForm()
-    
-    
+    if request.user.is_authenticated:
+        return redirect('index')
     return render(request, 'accounts/register.html', {'form': registration_form})
     
 def logout(request):
@@ -53,5 +55,7 @@ def logout(request):
     return redirect("/")
     
 def profile(request):
-    return render(request, 'accounts/profile.html')
+    if request.user.is_authenticated:
+        return render(request, 'accounts/profile.html')
+    return redirect('index')
 

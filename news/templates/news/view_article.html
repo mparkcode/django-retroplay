@@ -28,6 +28,17 @@
                         <div class="comment-background {% cycle 'cb-grey' 'cb-white' %}">
                             <div class="text-right">
                                 <small class="text-right">{{comment.date}}</small>
+                                {% if comment.author == user %}
+                                    <form action="" method="POST">
+                                        {%csrf_token%}
+                                        <input type="hidden" name="comment_id" value="{{comment.id}}"/>
+                                        <input type="submit" value="delete"/>
+                                    </form>
+                                    <form>
+                                        <input type="hidden" name="comment_id" value="{{comment.id}}"/>
+                                        <input type="submit" value="edit"/>
+                                    </form>
+                                {% endif %}
                             </div>
                             <strong><p>{{comment.author}}</p></strong>
                             <p>{{comment.content}}</p>
@@ -41,6 +52,7 @@
                         <form action="" method="POST">
                             {% csrf_token %}
                             {{form | as_bootstrap }}
+                            <input type="hidden" name="comment_id" value="{{comment_id}}"/>
                             <input class="btn btn-info" type="submit" value="Submit"/>
                         </form>
                     </div>
