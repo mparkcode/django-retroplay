@@ -3,6 +3,8 @@ body{
     padding: 0;
     position: relative;
     padding-bottom: 340px;
+    background-image: url('/static/images/c64 angle.jpg');
+    background-repeat: no-repeat;
 }
 
 
@@ -721,7 +723,7 @@ body{
 
 @media only screen and (max-width: 600px) {
     #logo {font-size: 20px;}
-    body{padding-bottom: 0px;}
+    body{padding-bottom: 0px; background-image:url('/static/images/c64 angle transparent.jpg');}
     .page-footer{position: relative; height: auto;}
     .parallax{background-attachment: scroll;}
     .sonic{background-image: url('/static/images/sonicsmall.png');}
@@ -733,7 +735,6 @@ body{
     .c64-background2{background-image: url('/static/images/c64 background4.jpg');}
     .heading-mobile{font-size: 1.5em;}
     .extra-margin-mobile{margin-top: 90px;}
-    .background{display: none;}
     .footer-links{margin-bottom:0;}
 }
 
