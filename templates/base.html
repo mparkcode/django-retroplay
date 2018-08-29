@@ -58,7 +58,7 @@
                                 {% endfor%}
                             </ul>
                         </li>
-                        <li><a id="news" class="nav-link hvr-underline-from-center" href="{% url 'all_news' %}">News</a></li>
+                        <li><a id="news" class="nav-link hvr-underline-from-center" href="{% url 'all_news' %}"><p>News</p></a></li>
                         <li><a id="game-bible" class="nav-link hvr-underline-from-center" href="{% url 'get_games' %}">Game bible</a></li>
                     </ul>
                     
@@ -81,7 +81,7 @@
                         {% if request.get_full_path == checkout %}
                             <li><a class="nav-link hvr-underline-from-center" href="{% url 'view_cart' %}">Cart 0</a></li>
                         {% else %}
-                            <li><a id="cart" class="nav-link hvr-underline-from-center" href="{% url 'view_cart' %}"><i class="fas fa-shopping-cart"></i> {{number_of_items}}</a></li>
+                            <li><a id="cart" class="nav-link hvr-underline-from-center" href="{% url 'view_cart' %}"><i class="fas fa-shopping-cart"></i> {% if request.get_full_path == '/checkout/confirmation' %}0{% else %}{{number_of_items}}{% endif %}</a></li>
                         {% endif %}
                             
                         
@@ -109,7 +109,7 @@
     <div class="info-area">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-sm-4">
                     <ul class="footer-links">
                         <li><a href="{% url 'index' %}" class="footer-link">Home</a></li>
                         <li><a href="{% url 'contact' %}" class="footer-link">Contact</a></li>
@@ -117,14 +117,14 @@
                         <li><a href="{% url 'faq' %}" class="footer-link">FAQ</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4">
+                <div class="col-sm-4">
                     <ul class="footer-links">
                         <li><a href="{% url 'all_brands' %}" class="footer-link">Games</a></li>
                         <li><a href="{% url 'all_news' %}" class="footer-link">News</a></li>
                         <li><a href="{% url 'get_games' %}" class="footer-link">Games Bible</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4">
+                <div class="col-sm-4">
                     <p class="mt-60">Website designed and built by Michael Park</p>
                 </div>
             </div>

@@ -13,4 +13,8 @@ class TestCartViews(TestCase):
         response = self.client.get("/cart/add")
         self.assertEqual(response.status_code, 404)
         
-    
+  
+        
+        
+        
+        

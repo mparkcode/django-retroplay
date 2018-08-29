@@ -174,7 +174,6 @@ body{
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 236px;
     background-color: #000;
     color: white;
     text-align: center;
@@ -255,7 +254,6 @@ body{
 /*---------------------------------------------------------------------css for displaying brands, consoles & games*/
 
 
-
 .helper {
     display: inline-block;
     height: 100%;
@@ -270,7 +268,6 @@ body{
 }
 
 .console-display{
-    background-image: linear-gradient(to top right, #ffffff, #C0C0C0);
     height: 100%;
     padding: 5px;
     transition: all .3s ease-in-out;
@@ -318,57 +315,6 @@ body{
 }
 
 
-
-.product-img{
-    width:100%;
-    height: 180px;
-    
-}
-
-.game-container {
-  position: relative;
-}
-
-.game-img{
-    transition: .5s ease;
-}
-
-.game-container .add-to-cart-btn {
-  position: absolute;
-  transition: .5s ease;
-  opacity: 0;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-}
-
-.game-container .search-in-bible-btn {
-  position: absolute;
-  transition: .5s ease;
-  opacity: 0;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-}
-
-.game-container:hover img {
-  opacity: 0.3;
-}
-
-.game-container:hover .add-to-cart-btn {
-  opacity: 1;
-}
-
-.game-container:hover .search-in-bible-btn {
-  opacity: 1;
-}
-
-.add-to-cart-btn:hover{
-    color: white;
-}
-
 .pagination{
     width: 100%;
     text-align: center;
@@ -410,6 +356,11 @@ body{
     border-top-left-radius: 10px;
 }
 
+.info-container{
+    height: 110px;
+    padding-top: 5px;
+}
+
 
 .game-image{
     width:100%;
@@ -440,7 +391,7 @@ body{
   position: absolute;
   transition: .5s ease;
   opacity: 0;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -747,11 +698,14 @@ body{
 
 /*---------------------------------------------------------------------end css for bible area*/
 
+@media only screen and (max-width: 1500px){
+    .background{opacity: 0.5;}
+}
+
 @media only screen and (max-width: 990px) {
     .sidebar-menu{position: static; width:100%}
     .spacer{height: 25px;}
     .sprite {width: 40%;}
-    
 }
 
 @media only screen and (max-width: 600px) {
@@ -768,6 +722,8 @@ body{
     .c64-background2{background-image: url('/static/images/c64 background4.jpg');}
     .heading-mobile{font-size: 1.5em;}
     .extra-margin-mobile{margin-top: 90px;}
+    .background{display: none;}
+    .footer-links{margin-bottom:0;}
 }
 
 @keyframes movingangle {

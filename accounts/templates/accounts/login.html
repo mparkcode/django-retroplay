@@ -1,6 +1,7 @@
 {% extends 'base.html'%}
 {% load bootstrap_tags %}
 {% block content%}
+<!--<div class="background"></div>-->
 <div class="spacer"></div>
 <div class="container">
     <section class="content">
@@ -12,13 +13,8 @@
             <form method="POST">
                 {% csrf_token %}
                 {{form | as_bootstrap}}
-                
-                
-                <button type="submit" class="btn btn-info">Login</button>
-                
+                <button type="submit" class="btn btn-info">Login</button>    
             </form>
-            <br>
-            Forgot your password? <a href="#">Click here</a>
         </div>
     </section>
 </div>    

@@ -1,5 +1,5 @@
 # info views
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import QuestionForm
 
 # Create your views here.
