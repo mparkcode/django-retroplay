@@ -1,5 +1,6 @@
 # info views
 from django.shortcuts import render
+from .forms import QuestionForm
 
 # Create your views here.
 def contact(request):
@@ -7,7 +8,8 @@ def contact(request):
     if search_query:
         query = search_query
         return redirect('search_results', query)
-    return render(request, 'info/contact.html')
+    form = QuestionForm()
+    return render(request, 'info/contact.html', {"form": form})
     
 def shipping(request):
     search_query = request.GET.get("query")

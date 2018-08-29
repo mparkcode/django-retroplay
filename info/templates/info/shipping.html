@@ -12,7 +12,36 @@
                 <div class="fade-line-wtob"></div>
                 <div class="row">
                     <div class="col-xs-12">
-                        <p>shipping stuff here</p>
+                        <h2>Shipping info</h2>
+                        <ol>
+                            <li><strong>General Information</strong></li>
+                            <p>All orders are subject to product availability. If an item is not in stock at the time you place your order, we will notify you and refund you the total amount of your order, using the original method of payment.</p>
+                            <li><strong>Delivery Location</strong></li>
+                            <p>We ship worldwide</p>
+                            <li><strong>Delivery Time</strong></li>
+                            <p>An estimated delivery time will be provided to you once your order is placed. Delivery times are estimates and commence from the date of shipping, rather than the date of order. Delivery times are to be used as a guide only and are subject to the acceptance and approval of your order. Unless there are exceptional circumstances, we make every effort to fulfill your order within [15] business days of the date of your order. Business day mean Monday to Friday, except holidays. Please note we do not ship on [Sundays].</p>
+                            <li><strong>Delivery Instructions</strong></li>
+                            <p>Please <a href="{% url 'contact' %}">contact us</a> directly with any special delivery instructions at the time of purchase</p>
+                            <li><strong>Shipping Costs</strong></li>
+                            <p>Shipping is free worldwide</p>
+                            <li><strong>Damaged Items in Transport</strong></li>
+                            <p>If there is any damage to the packaging on delivery, <a href="{% url 'contact' %}">contact us immediately.</a></p>
+                            <li><strong>Questions</strong></li>
+                            <p>If you have any questions about the delivery and shipment or your order, please check out the <a href="{% url 'faq' %}">faq</a> or <a href="{% url 'contact' %}">contact us.</a></p>
+                        </ol>
+                        <h2>Returns info</h2>
+                        <ol>
+                            <li><strong>Returns</strong></li>
+                            <p>We do not accept returns or exchanges unless the item you purchased is defective. If you receive a defective item, please <a href="{% url 'contact' %}">contact us</a> with details of the product and the defect.</p>
+                            <li><strong>Refunds</strong></li>
+                            <p>We accept returns. You can return unopened items in the original packaging within 30 days of your purchase with receipt or proof of purchase. If 30 days or more have passed since your purchase, we cannot offer you a refund or an exchange. Upon receipt of the returned item, we will fully examine it and notify you via email, within a reasonable period of time, whether you are entitled to a return. If you are entitled to a return, we will refund your purchase price and a credit will automatically be applied to your original method of payment.</p>
+                            <li><strong>Exchanges</strong></li>
+                            <p>We only exchange goods if they are defective or damaged. In circumstances where you consider that a product is defective, you should promptly <a href="{% url 'contact' %}">contact us</a> with details of the product and the defect.</p>
+                            <li><strong>Exceptions</strong></li>
+                            <p>Some items are non-refundable and non-exchangeable.</p>
+                            <li><strong>Shipping</strong></li>
+                            <p>To return the item you purchased, please check out the <a href="{% url 'faq' %}">faq</a> or <a href="{% url 'contact' %}">contact us.</a></p>
+                        </ol>
                     </div>
                 </div>
             </div>
@@ -23,3 +52,4 @@
     </section>
 </div>
 {% endblock %}
+

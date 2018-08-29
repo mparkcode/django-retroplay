@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles%}
+{% load bootstrap_tags %}
 {% block content %}
 <div class="spacer"></div>
 <div class="container">
@@ -12,7 +13,11 @@
                 <div class="fade-line-wtob"></div>
                 <div class="row">
                     <div class="col-xs-12">
-                        <p>Contact stuff here</p>
+                        <p>Please check the <a href="{% url 'faq' %}">faq </a>before submitting questions.</p>
+                        <form action="{% url 'faq' %}">
+                            {{form | as_bootstrap}}
+                            <input class="btn btn-info" type="submit" value="Submit"/>
+                        </form>
                     </div>
                 </div>
             </div>
