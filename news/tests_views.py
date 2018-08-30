@@ -30,11 +30,44 @@ class TestNewsViews(TestCase):
         
         
     def test_post_create_a_comment(self):
-        User.objects.create_user(username='john', email='jlennon@beatles.com', password='glass onion')
-        self.client.login(username='john', password='glass onion')
+        User.objects.create_user(username='test', email='test@example.com', password='Madetotest')
+        self.client.login(username='test', password='Madetotest')
         article = Article(title="Example article", content="example content")
         article.save()
-        response = self.client.post("/news/{0}".format(article.id), {'content':"Example comment"})
+        response = self.client.post("/news/{0}".format(article.id), {'content':"Example comment", 'comment_id': ""})
         comment = get_object_or_404(Comment, pk=1)
         self.assertRedirects(response, '/news/{0}'.format(article.id), status_code=302, 
         target_status_code=200, fetch_redirect_response=True)
+        
+    def test_can_edit_comment(self):
+        User.objects.create_user(username='test', email='test@example.com', password='Madetotest')
+        self.client.login(username='test', password='Madetotest')
+        article = Article(title="Example article", content="example content")
+        article.save()
+        comment = Comment(content="test comment", article=article)
+        comment.save()
+        response = self.client.post("/news/{0}".format(article.id), {'content':"Example comment", 'comment_id': comment.id})
+        self.assertRedirects(response, '/news/{0}'.format(article.id), status_code=302, 
+        target_status_code=200, fetch_redirect_response=True)
+        
+    def test_can_delete_comment(self):
+        User.objects.create_user(username='test', email='test@example.com', password='Madetotest')
+        self.client.login(username='test', password='Madetotest')
+        article = Article(title="Example article", content="example content")
+        article.save()
+        comment = Comment(content="test comment", article=article)
+        comment.save()
+        response = self.client.post("/news/{0}".format(article.id), {'comment_id': comment.id})
+        self.assertRedirects(response, '/news/{0}'.format(article.id), status_code=302, 
+        target_status_code=200, fetch_redirect_response=True)
+        
+    def test_comment_content_appears_in_form_to_edit(self):
+        User.objects.create_user(username='test', email='test@example.com', password='Madetotest')
+        self.client.login(username='test', password='Madetotest')
+        article = Article(title="Example article", content="example content")
+        article.save()
+        comment = Comment(content="test comment", article=article)
+        comment.save()
+        page = self.client.get("/news/{0}?comment_id={1}".format(article.id,comment.id))
+        self.assertEqual(page.status_code, 200)
+        self.assertTemplateUsed(page, "news/view_article.html")
