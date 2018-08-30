@@ -225,35 +225,35 @@
 <p id="t6" class="stm mis"><span class="key">import</span> <span class="nam">boto3</span><span class="strut">&nbsp;</span></p>
 <p id="t7" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t8" class="stm mis"><span class="nam">base_urls</span><span class="op">=</span><span class="op">[</span><span class="strut">&nbsp;</span></p>
-<p id="t9" class="pln">    <span class="com"># 'https://www.consolemad.co.uk/product-category/atari/atari-2600-games/',</span><span class="strut">&nbsp;</span></p>
-<p id="t10" class="pln">    <span class="com"># 'https://www.consolemad.co.uk/product-category/commodore/c64-cartridges/',</span><span class="strut">&nbsp;</span></p>
-<p id="t11" class="pln">    <span class="com"># 'https://www.consolemad.co.uk/product-category/commodore/cd32-games/',</span><span class="strut">&nbsp;</span></p>
-<p id="t12" class="pln">    <span class="com"># 'https://www.consolemad.co.uk/product-category/microsoft/xbox/uk-xbox-games/',</span><span class="strut">&nbsp;</span></p>
-<p id="t13" class="pln">    <span class="com"># 'https://www.consolemad.co.uk/product-category/microsoft/xbox-360/uk-xbox-360-games/',</span><span class="strut">&nbsp;</span></p>
-<p id="t14" class="pln">    <span class="com"># 'https://www.consolemad.co.uk/product-category/nintendo/game-boy/uk-game-boy-games/',</span><span class="strut">&nbsp;</span></p>
-<p id="t15" class="pln">    <span class="com"># 'https://www.consolemad.co.uk/product-category/nintendo/game-boy-advance/uk-game-boy-advance-games/',</span><span class="strut">&nbsp;</span></p>
-<p id="t16" class="pln">    <span class="com"># 'https://www.consolemad.co.uk/product-category/nintendo/game-boy-color/uk-game-boy-color-games/',</span><span class="strut">&nbsp;</span></p>
-<p id="t17" class="pln">    <span class="com"># 'https://www.consolemad.co.uk/product-category/nintendo/gamecube/uk-gamecube-games/',</span><span class="strut">&nbsp;</span></p>
-<p id="t18" class="pln">    <span class="com"># 'https://www.consolemad.co.uk/product-category/nintendo/nes/uk-nes-games/',</span><span class="strut">&nbsp;</span></p>
-<p id="t19" class="pln">    <span class="com"># 'https://www.consolemad.co.uk/product-category/nintendo/nintendo-3ds/uk-3ds-games/',</span><span class="strut">&nbsp;</span></p>
-<p id="t20" class="pln">    <span class="com"># 'https://www.consolemad.co.uk/product-category/nintendo/nintendo-64/uk-n64-games/',</span><span class="strut">&nbsp;</span></p>
-<p id="t21" class="pln">    <span class="com"># 'https://www.consolemad.co.uk/product-category/nintendo/nintendo-ds/uk-ds-games/',</span><span class="strut">&nbsp;</span></p>
-<p id="t22" class="pln">    <span class="com"># 'https://www.consolemad.co.uk/product-category/nintendo/snes/uk-snes-games/',</span><span class="strut">&nbsp;</span></p>
-<p id="t23" class="pln">    <span class="com"># 'https://www.consolemad.co.uk/product-category/nintendo/wii/uk-wii-games/',</span><span class="strut">&nbsp;</span></p>
-<p id="t24" class="pln">    <span class="com"># 'https://www.consolemad.co.uk/product-category/nintendo/wii-u/uk-wii-u-games/',</span><span class="strut">&nbsp;</span></p>
-<p id="t25" class="pln">    <span class="com"># 'https://www.consolemad.co.uk/product-category/sega/dreamcast/uk-dreamcast-games/',</span><span class="strut">&nbsp;</span></p>
-<p id="t26" class="pln">    <span class="com"># 'https://www.consolemad.co.uk/product-category/sega/game-gear/uk-game-gear-games/',</span><span class="strut">&nbsp;</span></p>
-<p id="t27" class="pln">    <span class="com"># 'https://www.consolemad.co.uk/product-category/sega/master-system/uk-master-system-games/'</span><span class="strut">&nbsp;</span></p>
+<p id="t9" class="pln">    <span class="str">'https://www.consolemad.co.uk/product-category/atari/atari-2600-games/'</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t10" class="pln">    <span class="str">'https://www.consolemad.co.uk/product-category/commodore/c64-cartridges/'</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t11" class="pln">    <span class="str">'https://www.consolemad.co.uk/product-category/commodore/cd32-games/'</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t12" class="pln">    <span class="str">'https://www.consolemad.co.uk/product-category/microsoft/xbox/uk-xbox-games/'</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t13" class="pln">    <span class="str">'https://www.consolemad.co.uk/product-category/microsoft/xbox-360/uk-xbox-360-games/'</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t14" class="pln">    <span class="str">'https://www.consolemad.co.uk/product-category/nintendo/game-boy/uk-game-boy-games/'</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t15" class="pln">    <span class="str">'https://www.consolemad.co.uk/product-category/nintendo/game-boy-advance/uk-game-boy-advance-games/'</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t16" class="pln">    <span class="str">'https://www.consolemad.co.uk/product-category/nintendo/game-boy-color/uk-game-boy-color-games/'</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t17" class="pln">    <span class="str">'https://www.consolemad.co.uk/product-category/nintendo/gamecube/uk-gamecube-games/'</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t18" class="pln">    <span class="str">'https://www.consolemad.co.uk/product-category/nintendo/nes/uk-nes-games/'</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t19" class="pln">    <span class="str">'https://www.consolemad.co.uk/product-category/nintendo/nintendo-3ds/uk-3ds-games/'</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t20" class="pln">    <span class="str">'https://www.consolemad.co.uk/product-category/nintendo/nintendo-64/uk-n64-games/'</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t21" class="pln">    <span class="str">'https://www.consolemad.co.uk/product-category/nintendo/nintendo-ds/uk-ds-games/'</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t22" class="pln">    <span class="str">'https://www.consolemad.co.uk/product-category/nintendo/snes/uk-snes-games/'</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t23" class="pln">    <span class="str">'https://www.consolemad.co.uk/product-category/nintendo/wii/uk-wii-games/'</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t24" class="pln">    <span class="str">'https://www.consolemad.co.uk/product-category/nintendo/wii-u/uk-wii-u-games/'</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t25" class="pln">    <span class="str">'https://www.consolemad.co.uk/product-category/sega/dreamcast/uk-dreamcast-games/'</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t26" class="pln">    <span class="str">'https://www.consolemad.co.uk/product-category/sega/game-gear/uk-game-gear-games/'</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t27" class="pln">    <span class="str">'https://www.consolemad.co.uk/product-category/sega/master-system/uk-master-system-games/'</span><span class="strut">&nbsp;</span></p>
 <p id="t28" class="pln">    <span class="str">'https://www.consolemad.co.uk/product-category/sega/mega-cd/uk-mega-cd-games/'</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
-<p id="t29" class="pln">    <span class="com"># 'https://www.consolemad.co.uk/product-category/sega/mega-drive/uk-mega-drive-games/',</span><span class="strut">&nbsp;</span></p>
-<p id="t30" class="pln">    <span class="com"># 'https://www.consolemad.co.uk/product-category/sega/saturn/uk-saturn-games/',</span><span class="strut">&nbsp;</span></p>
-<p id="t31" class="pln">    <span class="com"># 'https://www.consolemad.co.uk/product-category/sony/playstation/uk-playstation-games/',</span><span class="strut">&nbsp;</span></p>
-<p id="t32" class="pln">    <span class="com"># 'https://www.consolemad.co.uk/product-category/sony/playstation-2/uk-playstation-2-games/',</span><span class="strut">&nbsp;</span></p>
-<p id="t33" class="pln">    <span class="com"># 'https://www.consolemad.co.uk/product-category/sony/playstation-3/uk-playstation-3-games/',</span><span class="strut">&nbsp;</span></p>
-<p id="t34" class="pln">    <span class="com"># 'https://www.consolemad.co.uk/product-category/sony/ps-vita/ps-vita-games/',</span><span class="strut">&nbsp;</span></p>
-<p id="t35" class="pln">    <span class="com"># 'https://www.consolemad.co.uk/product-category/sony/psp/psp-games/',</span><span class="strut">&nbsp;</span></p>
-<p id="t36" class="pln">    <span class="com"># 'https://www.consolemad.co.uk/product-category/other/zx-spectrum-games/',</span><span class="strut">&nbsp;</span></p>
-<p id="t37" class="pln">    <span class="com"># 'https://www.consolemad.co.uk/product-category/other/3do/uk-3do-games/'</span><span class="strut">&nbsp;</span></p>
+<p id="t29" class="pln">    <span class="str">'https://www.consolemad.co.uk/product-category/sega/mega-drive/uk-mega-drive-games/'</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t30" class="pln">    <span class="str">'https://www.consolemad.co.uk/product-category/sega/saturn/uk-saturn-games/'</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t31" class="pln">    <span class="str">'https://www.consolemad.co.uk/product-category/sony/playstation/uk-playstation-games/'</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t32" class="pln">    <span class="str">'https://www.consolemad.co.uk/product-category/sony/playstation-2/uk-playstation-2-games/'</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t33" class="pln">    <span class="str">'https://www.consolemad.co.uk/product-category/sony/playstation-3/uk-playstation-3-games/'</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t34" class="pln">    <span class="str">'https://www.consolemad.co.uk/product-category/sony/ps-vita/ps-vita-games/'</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t35" class="pln">    <span class="str">'https://www.consolemad.co.uk/product-category/sony/psp/psp-games/'</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t36" class="pln">    <span class="str">'https://www.consolemad.co.uk/product-category/other/zx-spectrum-games/'</span><span class="op">,</span><span class="strut">&nbsp;</span></p>
+<p id="t37" class="pln">    <span class="str">'https://www.consolemad.co.uk/product-category/other/3do/uk-3do-games/'</span><span class="strut">&nbsp;</span></p>
 <p id="t38" class="pln">    <span class="op">]</span><span class="strut">&nbsp;</span></p>
 <p id="t39" class="pln"><span class="strut">&nbsp;</span></p>
 <p id="t40" class="pln"><span class="strut">&nbsp;</span></p>
@@ -374,7 +374,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.1</a>,
-            created at 2018-08-19 12:25
+            created at 2018-08-30 13:57
         </p>
     </div>
 </div>
