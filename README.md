@@ -216,7 +216,7 @@ python3 manage.py createsuperuser
 
 ## Testing
 [![Build Status](https://api.travis-ci.org/mparkcode/django-retroplay.svg)]
-Automated testing was done using Travis-CI. Currently it holds an 86% coverage rate for the sites apps. 80 tests were written, however many of these were needless. At a later stage I would like to remove these and write more tests to achieve 100% coverage.  
+Automated testing was done using Travis-CI. Currently it holds an 86% coverage rate for the site's apps. 80 tests were written, however many of these were needless. At a later stage I would like to remove these and write more tests to achieve 100% coverage.  
 To run the tests, when you have the project running locally, enter:
 ```
 python3 manage.py test
@@ -229,14 +229,14 @@ There is an issue on very small screen sizes (iPhone SE size) where the large im
 Manual tests were also done to ensure links/form submissions/model relationships/purchases/IGDB api usage worked correctly and that the site was defensively designed.  
 
 Manual testing was done to ensure:
-* The site works as intended
-* User entered information was handled correctly (adding/editing/comments, adding to and updating cart, purchases etc)
-* logging in and out and registering works as intended
-* The Bible retrieves and displays data as intended
+* The site works as intended.
+* User entered information was handled correctly (adding/editing/deleting comments, adding to and updating the cart, purchases etc).
+* Logging in and out and registering works as intended.
+* The Bible retrieves and displays data as intended.
 * Defensive design:
-    * The checkout page is not accessible if no items are in the cart
-    * The checkout confirmation is only accessible when payment is complete
-    * Users can only enter comments on news when logged in.
+    * The checkout page is not accessible if no items are in the cart.
+    * The checkout confirmation is only accessible when payment is complete.
+    * Users can only enter comments on news articles when logged in.
     * Only a user who creates a comment can edit or delete it.
 
 
@@ -252,6 +252,7 @@ search_query = request.GET.get("query")
         return redirect('search_results', query)
 ```
 I attempted to place this within its own function but it would not work. I would like to go back and get this working to reduce the ammount of code.  
+This is just an example of various issues I have. I also must make time to include comments on code blocks where it is not immediately clear what is going on.  
 
 In addition to this the custom.css file where I wrote most of the custom styles for the site is not what I would consider to be best practice for writing css.  I definitely wish to clean this up.  
 
@@ -270,4 +271,5 @@ Google fonts used - Press Start 2P, Libre Barcode 39 Extended Text & Orbitron.
 
 ### Acknowledgements
 Corey Schafer's [video on web scraping with beautiful soup](https://www.youtube.com/watch?v=ng2o98k983k).  
+WDTutorials [video on Django pagination](https://www.youtube.com/watch?v=Z8MDdDyB_6A)
 Code for the smooth scrolling effect on the animated arrow on the home screen was taken from [css tricks](https://css-tricks.com/snippets/jquery/smooth-scrolling/).  
