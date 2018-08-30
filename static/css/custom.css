@@ -341,7 +341,7 @@ body{
     width: 100%;
     border: 1px solid black;
     border-radius: 10px;
-    background: #efefef;
+    background: #f9f9f9;
     transition: all .3s ease-in-out;
 }
 

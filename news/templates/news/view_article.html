@@ -17,6 +17,8 @@
                         <div class="news-img-area">
                             <img class="news-img" src="{{MEDIA_URL}}{{article.image}}"></img>
                         </div>
+                        <p><strong>Published on: </strong>{{article.published_date|date:"M d, Y" }}</p>
+                        <br>
                         <p>{{article.content | linebreaksbr}}</p>
                     </div>
                 </div>
