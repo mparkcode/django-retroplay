@@ -44,3 +44,7 @@ $(document).ready(function() {
         }
     });
 });
+
+$(function() { 
+   $("#no-rating-bar").addClass("progress-bar-grey");
+});

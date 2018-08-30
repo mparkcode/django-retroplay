@@ -36,9 +36,7 @@ def checkout(request):
 
             if customer.paid:
                 messages.error(request, "You have successfully paid")
-
-                
-
+                request.session['payment-completed'] = True
                 return redirect("confirmation")
             else:
                 messages.error(request, "Unable to take payment")
@@ -57,11 +55,14 @@ def checkout(request):
     return render(request, "checkout/checkout.html", context)
     
 def confirmation(request):
-    cart = request.session.pop('cart', {})
-    cart_items_and_total = get_cart_items_and_total(cart)
-    if cart_items_and_total['total'] == 0:
-            return redirect("index")
-    context = get_cart_items_and_total(cart)
-    billing_details = Order.objects.latest('id')
-    context.update({'billing_details':billing_details})
-    return render(request, "checkout/confirmation.html",  context)
+    if not request.session.get('payment-completed', False):
+        return redirect("index")
+    else:
+        cart = request.session.pop('cart', {})
+        cart_items_and_total = get_cart_items_and_total(cart)
+        if cart_items_and_total['total'] == 0:
+                return redirect("index")
+        context = get_cart_items_and_total(cart)
+        billing_details = Order.objects.latest('id')
+        context.update({'billing_details':billing_details})
+        return render(request, "checkout/confirmation.html",  context)
