@@ -231,6 +231,8 @@ To run the tests, when you have the project running locally, enter:
 ```
 python3 manage.py test
 ```
+To get all tests to pass you will have to set an IGDB API key in your environment variables.  
+
 
 The site was tested on 21" monitors, 15" and 13" laptop screens and on an iPhone SE and iPhone 8 screen to test responsiveness.  
 It was also tested using chrome, firefox and safari.  
