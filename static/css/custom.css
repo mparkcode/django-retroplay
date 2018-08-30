@@ -646,6 +646,28 @@ body{
     background: white;
 }
 
+.comment-options {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.comment-options:focus {
+  outline: 0;
+}
+
+.comment-menu{
+    margin: 0!important;
+    min-width: 1px !important;
+}
+
+.comment-option{
+    background: none;
+    border:none;
+    margin: 2px 5px;
+}
+
 
 /*---------------------------------------------------------------------end css for news area*/
 

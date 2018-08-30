@@ -26,22 +26,62 @@
                     <h3 class="comment-heading-underline">Comments</h3>
                     {% for comment in comments %}
                         <div class="comment-background {% cycle 'cb-grey' 'cb-white' %}">
-                            <div class="text-right">
-                                <small class="text-right">{{comment.date}}</small>
-                                {% if comment.author == user %}
-                                    <form action="" method="POST">
-                                        {%csrf_token%}
-                                        <input type="hidden" name="comment_id" value="{{comment.id}}"/>
-                                        <input type="submit" value="delete"/>
-                                    </form>
-                                    <form>
-                                        <input type="hidden" name="comment_id" value="{{comment.id}}"/>
-                                        <input type="submit" value="edit"/>
-                                    </form>
-                                {% endif %}
+                            <div class="row hidden-xs">
+                                <div class="col-sm-9">
+                                    <strong><p>{{comment.author}}</p></strong>
+                                    <p>{{comment.content}}</p>
+                                </div>
+                                <div class="col-sm-3">
+                                    <small>{{comment.date}}</small>
+                                    {% if comment.author == user %}
+                                        <div class="dropdown">
+                                            <button class="comment-options dropdown-toggle" data-toggle="dropdown">
+                                                 ...
+                                            </button>
+                                            <div class="dropdown-menu comment-menu">
+                                                <form>
+                                                    <input type="hidden" name="comment_id" value="{{comment.id}}"/>
+                                                    <input class="comment-option" type="submit" value="edit"/>
+                                                </form>
+                                                <form action="" method="POST">
+                                                    {%csrf_token%}
+                                                    <input type="hidden" name="comment_id" value="{{comment.id}}"/>
+                                                    <input class="comment-option" type="submit" value="delete"/>
+                                                </form>    
+                                            </div>
+                                        </div>    
+                                    {% endif %}
+                                </div>
                             </div>
-                            <strong><p>{{comment.author}}</p></strong>
-                            <p>{{comment.content}}</p>
+                            <div class="row visible-xs">
+                                <div class="col-xs-12">
+                                    <small>{{comment.date}}</small>
+                                </div>
+                                <div class="col-xs-12">
+                                    <strong><p>{{comment.author}}</p></strong>
+                                    <p>{{comment.content}}</p>
+                                </div>
+                                <div class="col-xs-12">
+                                    {% if comment.author == user %}
+                                        <div class="dropdown">
+                                            <button class="comment-options dropdown-toggle" data-toggle="dropdown">
+                                                 ...
+                                            </button>
+                                            <div class="dropdown-menu comment-menu">
+                                                <form>
+                                                    <input type="hidden" name="comment_id" value="{{comment.id}}"/>
+                                                    <input class="comment-option" type="submit" value="edit"/>
+                                                </form>
+                                                <form action="" method="POST">
+                                                    {%csrf_token%}
+                                                    <input type="hidden" name="comment_id" value="{{comment.id}}"/>
+                                                    <input class="comment-option" type="submit" value="delete"/>
+                                                </form>    
+                                            </div>
+                                        </div>    
+                                    {% endif %}
+                                </div>
+                            </div>
                         </div>
                     {% endfor %}
                 {% else %}

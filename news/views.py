@@ -23,8 +23,9 @@ def view_article(request, pk):
             comment_id = request.POST['comment_id']
             if comment_id:
                 comment=Comment.objects.filter(id=comment_id).first()
-                comment.content = form.cleaned_data.get('content')
-                comment.save()
+                if comment.author == request.user:
+                    comment.content = form.cleaned_data.get('content')
+                    comment.save()
                 article = Article.objects.get(pk=pk)
                 return redirect('view_article', article.id)
             comment=form.save(commit=False)
@@ -34,8 +35,9 @@ def view_article(request, pk):
             comment.save()
             return redirect('view_article', article.id)
         comment_id=request.POST['comment_id']
-        comment=Comment.objects.filter(id=comment_id)
-        comment.delete()
+        comment=Comment.objects.filter(id=comment_id).first()
+        if comment.author == request.user:
+            comment.delete()
         article = Article.objects.get(pk=pk)
         return redirect('view_article', article.id)
     search_query = request.GET.get("query")
