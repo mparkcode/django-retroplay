@@ -16,6 +16,8 @@ class TestAccountsViews(TestCase):
         self.assertTemplateUsed(page, "accounts/register.html")
         
     def test_get_profile_page(self):
+        test_user = User.objects.create_user(username="test", email="test@example.com", password="Madetotest")
+        self.client.login(username='test', password='Madetotest')
         page = self.client.get("/accounts/profile")
         self.assertEqual(page.status_code, 200)
         self.assertTemplateUsed(page, "accounts/profile.html")
