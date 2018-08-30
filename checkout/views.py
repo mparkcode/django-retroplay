@@ -58,6 +58,7 @@ def confirmation(request):
     if not request.session.get('payment-completed', False):
         return redirect("index")
     else:
+        request.session['payment-completed'] = False
         cart = request.session.pop('cart', {})
         cart_items_and_total = get_cart_items_and_total(cart)
         if cart_items_and_total['total'] == 0:

@@ -41,7 +41,7 @@ The navbar link for the game shop gives a dropdown menu to choose an individual 
 A side navigation menu also exists on nearly all screens except the index page, cart/checkout pages, and accounts pages; which contains a search bar to search all products at any time.  
 The side navigation menu allows users to drill down further from brands to individual consoles. This is achieved through dropdown menus.  
 
-No Template was used for this site.  
+### No Template was used for this site.  
 
 
 ## Technologies Used
@@ -99,7 +99,7 @@ I would like to expand the features on offer to registered users.
 The bible app is used to search the Internet Game Database and return information about games.  
 The app makes use of this [python wrapper](https://github.com/igdb/igdb_api_python), designed for working with the IGDB API in python.  
 The information retrieved gives a games' name, cover image, a selection of screenshots, aggregate rating, date released, a summary, and a link to the IGDB page for the game to get more information.  
-Originally the cover images and screenshots sent through the api linked to small thumbnail images. These did not display well on the site due to the small sizes so in the view for retrieving the data I edited the string of the returned url to link instead to where a full size image was hosted:  
+Originally the cover images and screenshots sent through the api linked to small thumbnail images. These did not display well on the site due to the small sizes, so in the view for retrieving the data I edited the string of the returned url to link instead to where a full size image was hosted:  
 ```
 if 'cover' in game:
     game['cover']['url']=game['cover']['url'].replace("t_thumb","t_cover_big")
@@ -114,7 +114,7 @@ if 'screenshots' in game:
 * Information is presented in a simple layout, which gives the users access to screenshots, summary, rating, release date and link to get more information.
 * In the case of the rating the animated color progress bar will show a color appropriate to the rating: green, orange, or red.
 * The instances of no information for some of the returned values are handled in the following ways:
-    * In the even a game has no cover image a default image will display instead.
+    * In the event a game has no cover image a default image will display instead.
     * No rating will display a grey animated progress bar stating no rating available.
 
 #### Features left to implement
@@ -141,7 +141,7 @@ The checkout app is used for making purchases with stripe.
 * Users can enter address and card information for making purchases.
 * While making payment the order details are available on screen with an edit button should the user want to edit their cart before finalising purchases.
 * When purchases are complete users will be redirected to a confirmation screen where they can view their order details. Billing information is also available on screen.
-* Pyment processing via stripe.
+* Payment processing via stripe.
 
 #### Features left to implement
 * Sending email confirmation upon succesful purchases.
@@ -154,7 +154,7 @@ The info app exists to create a sense of authenticity to the project as a whole.
 Rather than having dead links in the nav and footer I created the info app and filled the individual urls with dummy data. 
 
 #### Existing Features
-* working links to contact, FAQ and shipping information.
+* Working links to Contact, FAQ and Shipping information views.
 * Filled with dummy data.
 * The contact form redirects to the FAQ via a get request.
 
@@ -180,12 +180,12 @@ The products app contains all the information relating to the games found on the
 For this project I wanted to work with a large amount of data in order to learn how to present it to users in an easily consumable/navigatable manner.  
 To this end there are over 1500 products in the database for users to look through. This is too much to render in a view all display.  
 It was important to consider how to construct the models in order to make the data easy to deal with and present to the user.  
-In the end there are three different models: Brand, Console and Game. Giving the console model a foreign key to the brand model and giving the Game model a foreign key to both Console and Brand made the data easy to work with and present in an intuitive fashion.  
+In the end there are three different models: Brand, Console and Game. Giving the Console model a foreign key to the Brand model and giving the Game model a foreign key to both Console and Brand made the data easy to work with and present in an intuitive fashion.  
 
 To source the products I used Beautiful soup to scrape data from [consolemad.co.uk](https://www.consolemad.co.uk/), an online retro gaming store.  
-The original site uses pagination in displaying their results. As a result I had to write a scrape function for multiple urls where it could look for paginated pages and deal with them accordingly.  
+The original site uses pagination in displaying their results. As a result I had to write a scrape function for multiple urls where it could recognise paginated pages on the site and scrape through each paginated page accordingly.  
 Originally, due to the amount of data, I chose not do download images for products, but rather linked them via url to the original image.  
-This caused issue however as when the origianl site sold an item, they took down the image link.  As a result a product on my site would display no image if the corresponding product on theirs was sold.  
+This caused issue however as when the original site sold an item, they took down the image link.  As a result a product on my site would display no image if the corresponding product on theirs was sold.  
 To overcome this I attempted to write it into the view for retrieving and rendering products that, when filtering Game objects to be rendered, the view would check to see if the image link was returning a 404 status code. If it did then the game object with the broken image link would be deleted from the database before it could be rendered.  
 This slowed the process of filtering and returning games down too much, and also meant that my inventory of games would slowly decrease.  
 In the end I elected to expand the scrape function to also download images.  
@@ -209,19 +209,20 @@ In the end I elected to expand the scrape function to also download images.
 ```
 pip3 install -r requirements.txt
 ```
-3. Get a secret key and set it as an environment variable. You can get one at https://www.miniwebtool.com/django-secret-key-generator/
-4. Set as an environment variable DJANGO\_SETTINGS\_MODULE equal to retroplay.settings.local:
-5. migrate:
+3. In base.py set debug to True.
+4. Get a secret key and set it as an environment variable. You can get one at https://www.miniwebtool.com/django-secret-key-generator/
+5. Set as an environment variable DJANGO\_SETTINGS\_MODULE equal to retroplay.settings.local:
+6. migrate:
 ```
 python3 manage.py migrate
 ```
-6. Create a superuser:
+7. Create a superuser:
 ```
 python3 manage.py createsuperuser
 ```
-7. You will need to update your allowed hosts in base.py.
-7. The site will now run locally. There will be no products or news articles. 
-8. If you wish to use the game bible you will need to get an API key from [IGDB](https://www.igdb.com/api) and set it as an environment variable called IGDB\_API\_KEY.
+8. You will need to update your allowed hosts in base.py.
+9. The site will now run locally. There will be no products or news articles. 
+10. If you wish to use the game bible you will need to get an API key from [IGDB](https://www.igdb.com/api) and set it as an environment variable called IGDB\_API\_KEY.
 
 
 ## Testing
