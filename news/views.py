@@ -21,6 +21,7 @@ def view_article(request, pk):
         form = CommentForm(request.POST)
         if form.is_valid():
             comment_id = request.POST['comment_id']
+            # editing a comment
             if comment_id:
                 comment=Comment.objects.filter(id=comment_id).first()
                 if comment.author == request.user:
@@ -28,12 +29,16 @@ def view_article(request, pk):
                     comment.save()
                 article = Article.objects.get(pk=pk)
                 return redirect('view_article', article.id)
+            
+            #creating a new comment
             comment=form.save(commit=False)
             comment.author=request.user
             article = Article.objects.get(pk=pk)
             comment.article=article
             comment.save()
             return redirect('view_article', article.id)
+        
+        #deleting a comment
         comment_id=request.POST['comment_id']
         comment=Comment.objects.filter(id=comment_id).first()
         if comment.author == request.user:
@@ -45,9 +50,10 @@ def view_article(request, pk):
         query = search_query
         return redirect('search_results', query)
     comment_id = request.GET.get("comment_id")
+    
+    # display comment content in the form field if user clicks edit
     if comment_id:
         comment=Comment.objects.filter(id=comment_id).first()
-        print(comment)
         article = Article.objects.get(pk=pk)
         comments = Comment.objects.filter(article = article)
         form = CommentForm(initial={'content': comment.content})
