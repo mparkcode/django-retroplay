@@ -52,6 +52,7 @@ The side navigation menu allows users to drill down further from brands to indiv
 * Django2 Framework
 * Javascript
 * Jquery
+* SQLite Database
 * lightbox
     * A javascript library used to overlay images on the current page. Used for viewing screenshots from games in the bible app.
 * Hover.css
