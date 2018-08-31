@@ -269,7 +269,7 @@ search_query = request.GET.get("query")
         return redirect('search_results', query)
 ```
 I attempted to place this within its own function but it would not work. I would like to go back and get this working to reduce the amount of code.  
-This is just an example of various issues I have. I also must make time to include comments on code blocks where it is not immediately clear what the code is doing.  
+I also must make time to include comments on code blocks where it is not immediately clear what the code is doing.  
 
 In addition to this the custom.css file where I wrote most of the custom styles for the site is not what I would consider to be best practice for writing css.  I definitely wish to clean this up.  
 
