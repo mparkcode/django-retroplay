@@ -182,13 +182,17 @@ To this end there are over 1500 products in the database for users to look throu
 It was important to consider how to construct the models in order to make the data easy to deal with and present to the user.  
 In the end there are three different models: Brand, Console and Game. Giving the Console model a foreign key to the Brand model and giving the Game model a foreign key to both Console and Brand made the data easy to work with and present in an intuitive fashion.  
 
-To source the products I used Beautiful soup to scrape data from [consolemad.co.uk](https://www.consolemad.co.uk/), an online retro gaming store.  
+To source the products I used Beautiful soup to scrape data from [consolemad.co.uk](https://www.consolemad.co.uk/), an online retro gaming store. I wrote this script and ran it from the django shell.  
 The original site uses pagination in displaying their results. As a result I had to write a scrape function for multiple urls where it could recognise paginated pages on the site and scrape through each paginated page accordingly.  
 Originally, due to the amount of data, I chose not do download images for products, but rather linked them via url to the original image.  
 This caused issue however as when the original site sold an item, they took down the image link.  As a result a product on my site would display no image if the corresponding product on theirs was sold.  
 To overcome this I attempted to write it into the view for retrieving and rendering products that, when filtering Game objects to be rendered, the view would check to see if the image link was returning a 404 status code. If it did then the game object with the broken image link would be deleted from the database before it could be rendered.  
 This slowed the process of filtering and returning games down too much, and also meant that my inventory of games would slowly decrease.  
 In the end I elected to expand the scrape function to also download images.  
+
+Context processors were written in order to easily work with and dynamically display the database models in the navbar and side navigation menu, rather than hardcoding them in the html.  
+In deciding how to present the brands, consoles and games for rendering in the navs and templates I decided to order the consoles and games alphabetically, while brands are ordered in reverse alphabetical order.  
+I did this as the brands which appear first in reverse alphabetical order (ie. Sony, Sega, Nintendo) have more consoles and games to display; and I feel they would be more popular.  
 
 
 #### Existing Features
@@ -269,6 +273,7 @@ This is just an example of various issues I have. I also must make time to inclu
 
 In addition to this the custom.css file where I wrote most of the custom styles for the site is not what I would consider to be best practice for writing css.  I definitely wish to clean this up.  
 
+Occasionally the information returned in the Game Bible can be a little slow.
 
 ## Deployment
 The site is hosted on heroku.  

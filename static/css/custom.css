@@ -63,12 +63,16 @@ body{
   display: block;
 }
 
-.navbar a,a:visited,a:hover,a:active{
+.navbar  a,a:visited,a:hover,a:active{
   transition:0.5s color ease;
 }
 
 .navbar a:hover{
 	color:#fa9b01 !important;
+}
+
+.navbar-brand a:hover{
+    color: inherit !important;
 }
 
 

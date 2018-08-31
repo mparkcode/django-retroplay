@@ -23,7 +23,7 @@ def search_results(request, query):
         query = search_query
         return redirect('search_results', query)
     query_list = query.split(" ")
-    games = Game.objects.all()
+    games = Game.objects.all().order_by('title')
     for i in query_list:
         games = games.filter(title__icontains=i)
     paginator = Paginator(games, 16)
@@ -38,7 +38,7 @@ def all_brands(request):
         return redirect('search_results', query)
         
     else:
-        brands = Brand.objects.all()
+        brands = Brand.objects.all().order_by('-name')
         return render(request, "products/all_brands.html", {"brands":brands})
     
 def show_consoles(request, brand):
@@ -48,7 +48,7 @@ def show_consoles(request, brand):
         query = search_query
         return redirect('search_results', query)
     else:
-        consoles = Console.objects.filter(brand = brand)
+        consoles = Console.objects.filter(brand = brand).order_by('console_type')
         return render(request, "products/show_consoles.html", {'consoles':consoles, 'brand':brand})
 
     
@@ -59,7 +59,7 @@ def show_games(request, console):
         query = search_query
         return redirect('search_results', query)
     else:
-        games=Game.objects.filter(console=console_type)
+        games=Game.objects.filter(console=console_type).order_by('title')
         paginator = Paginator(games, 16)
         page = request.GET.get('page')
         games=paginator.get_page(page)
