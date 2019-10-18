@@ -1,3 +1,4 @@
 db.sqlite3
 media
 retroplay/__Pycache__
+retroplay/settings/.env

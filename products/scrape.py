@@ -122,12 +122,12 @@ def scrape(base_urls):
                     print(picture_link, picture_name)
                     
                     # Saving images to aws
-                    s3 = boto3.resource('s3')
-                    s3.Bucket('mpark-django-retroplay').put_object(Key="media/images/" + picture_name, Body=r2.content)
+                    # s3 = boto3.resource('s3')
+                    # s3.Bucket('mpark-django-retroplay').put_object(Key="media/images/" + picture_name, Body=r2.content)
                     
                     # svaing images locally
-                    # with open(settings.MEDIA_ROOT + "/images/" + picture_name, "wb") as f:
-                    #     f.write(r2.content)
+                    with open(settings.MEDIA_ROOT + "/images/" + picture_name, "wb") as f:
+                        f.write(r2.content)
                     
                     title = product.find('div', class_="entry-wrap").header.h3.a.text
                     price = product.find('div', class_="entry-wrap").header.span.span.text
